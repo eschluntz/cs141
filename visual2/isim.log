@@ -1,0 +1,37 @@
+ISim log file
+Running: E:\cs141\visual2\test_touch_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb E:/cs141/visual2/test_touch_isim_beh.wdb 
+ISim O.61xd (signature 0x6dd86d03)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING: File "//vboxsrv/CS141Shared/cs141/visual2/test_touch 2.v" Line 16.  For instance test_touch/uut/, width 2 of formal port counter_type is not equal to width 3 of actual signal counter_type.
+WARNING: File "//vboxsrv/CS141Shared/cs141/visual2/test_touch 2.v" Line 17.  For instance test_touch/uut/, width 12 of formal port x is not equal to width 9 of actual signal x.
+WARNING: File "//vboxsrv/CS141Shared/cs141/visual2/test_touch 2.v" Line 17.  For instance test_touch/uut/, width 12 of formal port y is not equal to width 9 of actual signal y.
+WARNING: File "//vboxsrv/CS141Shared/cs141/visual2/test_touch 2.v" Line 17.  For instance test_touch/uut/, width 12 of formal port z is not equal to width 9 of actual signal z.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run all
+Stopped at time : 38842545 ns : File "//vboxsrv/CS141Shared/cs141/visual2/test_touch 2.v" Line 46

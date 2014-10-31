@@ -1,0 +1,31 @@
+Running: C:\Xilinx\13.2\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o E:/cs141/visual2/test_touch_isim_beh.exe -prj E:/cs141/visual2/test_touch_beh.prj work.test_touch work.glbl 
+ISim O.61xd (signature 0x6dd86d03)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Analyzing Verilog file \"E:/cs141/visual2/touchpad_controller.v\" into library work
+Analyzing Verilog file \"E:/cs141/visual2/ad7873.v\" into library work
+Analyzing Verilog file \"E:/cs141/visual2/test_touch 2.v\" into library work
+Analyzing Verilog file \"E:/cs141/visual2/ipcore_dir/clock_generator/example_design/clock_generator_exdes.v\" into library work
+Analyzing Verilog file \"C:/Xilinx/13.2/ISE_DS/ISE//verilog/src/glbl.v\" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "E:/cs141/visual2/test_touch 2.v" Line 20: Port counter_num_requests is not connected to this instance
+WARNING:HDLCompiler:189 - "E:/cs141/visual2/test_touch 2.v" Line 29: Size mismatch in connection of port <counter_type>. Formal port size is 2-bit while actual signal size is 3-bit.
+WARNING:HDLCompiler:189 - "E:/cs141/visual2/test_touch 2.v" Line 30: Size mismatch in connection of port <x>. Formal port size is 12-bit while actual signal size is 9-bit.
+WARNING:HDLCompiler:189 - "E:/cs141/visual2/test_touch 2.v" Line 31: Size mismatch in connection of port <y>. Formal port size is 12-bit while actual signal size is 9-bit.
+WARNING:HDLCompiler:189 - "E:/cs141/visual2/test_touch 2.v" Line 32: Size mismatch in connection of port <z>. Formal port size is 12-bit while actual signal size is 9-bit.
+WARNING:HDLCompiler:1007 - "E:/cs141/visual2/touchpad_controller.v" Line 90: Element index 14 into last_data is out of bounds
+WARNING:HDLCompiler:1007 - "E:/cs141/visual2/touchpad_controller.v" Line 94: Element index 14 into last_data is out of bounds
+WARNING:HDLCompiler:1007 - "E:/cs141/visual2/touchpad_controller.v" Line 98: Element index 14 into last_data is out of bounds
+Completed static elaboration
+Fuse Memory Usage: 59988 KB
+Fuse CPU Usage: 160 ms
+Compiling module touchpad_controller
+Compiling module ad7873(NOISE=1)
+Compiling module test_touch
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 4 Verilog Units
+Built simulation executable E:/cs141/visual2/test_touch_isim_beh.exe
+Fuse Memory Usage: 63448 KB
+Fuse CPU Usage: 190 ms
