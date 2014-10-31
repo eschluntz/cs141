@@ -1,0 +1,29 @@
+Command line:
+   touchpad_controller_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50632
+
+Fri Oct 31 19:30:14 2014
+
+
+ Elaboration Time: 0.031201 sec
+
+ Current Memory Usage: 505.385 Meg
+
+ Total Signals          : 17
+ Total Nets             : 47
+ Total Signal Drivers   : 11
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 13
+ Total Traceable Variables  : 25
+ Total Scalar Nets and Variables : 162
+Total Line Count : 25
+
+ Total Simulation Time: 0.046801 sec
+
+ Current Memory Usage: 505.385 Meg
+
+Fri Oct 31 19:30:19 2014
+
