@@ -27,7 +27,6 @@ module test_main;
 	// Inputs
 	reg unbuf_clk;
 	reg rstb;
-	reg clock_rstb;
 	reg [7:0] switch;
 	reg button_up;
 	reg button_down;
@@ -59,8 +58,7 @@ module test_main;
 	// Instantiate the Unit Under Test (UUT)
 	main uut (
 		.unbuf_clk(unbuf_clk), 
-		.rstb(rstb), 
-		.clock_rstb(clock_rstb),
+		.rstb(rstb),
 		.switch(switch), 
 		.led(led), 
 		.JB(JB), 
@@ -98,10 +96,10 @@ module test_main;
 		touch_busy = 0;
 		touch_data_out = 1;
 		
-		clock_rstb = 0;
+		switch[0] = 1;
 		rstb = 0;
 		repeat (500) @(posedge unbuf_clk);
-		clock_rstb = 1;
+		switch[0] = 0;
 		repeat (500) @(posedge unbuf_clk);
 		rstb = 1;
 

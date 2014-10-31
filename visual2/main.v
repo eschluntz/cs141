@@ -4,7 +4,7 @@
 
 module main(
 	//default IO
-	input wire unbuf_clk, rstb, clock_rstb,
+	input wire unbuf_clk, rstb,
 	input wire [7:0] switch,
 	output wire [7:0] led,
 	output wire [7:0] JB,
@@ -29,7 +29,6 @@ wire cclk_n, tft_clk_buf, tft_clk_buf_n, clocks_locked;
 wire reset;
 wire clock_reset;
 assign reset = ~rstb;
-assign clock_reset = ~clock_rstb;
 
 //touchpad signals
 //tft signals
@@ -40,7 +39,7 @@ wire [8:0] tft_y;
 wire tft_new_frame;
 
 //generate all the clocks
-clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n(cclk_n), .CLK_9M(tft_clk_buf), .CLK_9M_n(tft_clk_buf_n), .RESET(clock_reset), .LOCKED(clocks_locked));
+clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n(cclk_n), .CLK_9M(tft_clk_buf), .CLK_9M_n(tft_clk_buf_n), .RESET(switch[0]), .LOCKED(clocks_locked));
 //pass the tft_clk through a DDR2 output buffer (so that it can drive external loads and so that internal loads are unaffected by large skew routing)
 ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n), .Q(tft_clk), .CE(1'b1));
 
