@@ -51,11 +51,6 @@ module test_main;
 	wire touch_clk;
 	wire touch_data_in;
 	wire cclk;
-	wire [11:0] touch_x, touch_y, touch_z;
-	wire [9:0] adjusted_x;
-	wire [8:0] adjusted_y;
-	wire [9:0] tft_x;
-	wire [8:0] tft_y;
 
 	
 	integer i;
@@ -85,16 +80,10 @@ module test_main;
 		.touch_csb(touch_csb), 
 		.touch_clk(touch_clk), 
 		.touch_data_in(touch_data_in), 
-		.cclk(cclk),
-		.touch_x(touch_x),
-		.touch_y(touch_y),
-		.touch_z(touch_z),
-		.adjusted_x(adjusted_x),
-		.adjusted_y(adjusted_y),
-		.tft_x(tft_x),
-		.tft_y(tft_y)
+		.cclk(cclk)
 	);
 
+	always #5 unbuf_clk = ~unbuf_clk;
 	initial begin
 		// Initialize Inputs
 		unbuf_clk = 0;
@@ -107,11 +96,13 @@ module test_main;
 		button_center = 0;
 		touch_busy = 0;
 		touch_data_out = 1;
-		repeat (10) @(posedge unbuf_clk);
+		
+		repeat (1000) @(posedge unbuf_clk);
 		rstb = 1;
 
+		repeat (1000) @(posedge unbuf_clk);
+
 	end
-	always #5 unbuf_clk = ~unbuf_clk;
       
 endmodule
 
