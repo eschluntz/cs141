@@ -5,25 +5,16 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="sim" num="172" delta="old" >Generating IP...
+<msg type="warning" file="sim" num="0" delta="new" >The IP Clocking Wizard 3.3 does not exist within the repository, and cannot be recustomized or regenerated. It is not available in CoreGen 13.2, and may have been removed or replaced. To generate Clocking Wizard 3.3 please use a previous version of ISE in which this IP is available, or add the user repository which contains this IP.
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;coregen_video_ram&apos; already exists in the project. Output products for this core may be overwritten.</arg>
+<msg type="info" file="sim" num="0" delta="new" >Generating component instance &apos;<arg fmt="%s" index="1">clock_generator</arg>&apos; of &apos;<arg fmt="%s" index="2">xilinx.com:ip:clk_wiz:3.3</arg>&apos; from &apos;<arg fmt="%s" index="3">E:\cs141\visual2\ipcore_dir\</arg>&apos;.
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;coregen_video_ram&apos; already exists in the project. Output products for this core may be overwritten.</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">The chosen IP does not support an SYM schematic symbol.</arg>
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Can&apos;t find &apos;Verilog&apos; synthesis view; using general synthesis view</arg>
-</msg>
-
-<msg type="info" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Pre-processing HDL files for &apos;coregen_video_ram&apos;...</arg>
-</msg>
-
-<msg type="info" file="sim" num="949" delta="old" >Finished generation of ASY schematic symbol.
-</msg>
-
-<msg type="info" file="sim" num="948" delta="old" >Finished FLIST file generation.
+<msg type="info" file="sim" num="0" delta="new" >Finished FLIST file generation.
 </msg>
 
 </messages>

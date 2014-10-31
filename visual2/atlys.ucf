@@ -1,3 +1,5 @@
+PIN "CLOCK_GEN/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+
 #NET "cclk" IOSTANDARD = LVCMOS33;
 NET "unbuf_clk" LOC = L15;
 NET "rstb" LOC = T15;

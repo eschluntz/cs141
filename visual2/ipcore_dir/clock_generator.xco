@@ -1,7 +1,7 @@
 ##############################################################
 #
-# Xilinx Core Generator version 13.4
-# Date: Tue May 29 18:22:46 2012
+# Xilinx Core Generator version 13.2
+# Date: Fri Oct 31 17:21:45 2014
 #
 ##############################################################
 #
@@ -31,7 +31,7 @@ SET implementationfiletype = Ngc
 SET package = csg324
 SET removerpms = false
 SET simulationfiles = Behavioral
-SET speedgrade = -3
+SET speedgrade = -2
 SET verilogsim = true
 SET vhdlsim = false
 # END Project Options
@@ -260,7 +260,7 @@ CSET use_spread_spectrum=false
 CSET use_status=false
 # END Parameters
 # BEGIN Extra information
-MISC pkg_timestamp=2011-06-09T17:33:40Z
+MISC pkg_timestamp=0
 # END Extra information
 GENERATE
-# CRC: 8212a7e9
+# CRC: 726b6569
