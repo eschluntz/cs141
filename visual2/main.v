@@ -14,11 +14,12 @@ module main(
 	output wire tft_display,tft_vdd,
 	output wire [7:0] tft_red, tft_green, tft_blue,
 	//touchpad IO
-	input wire touch_busy, touch_data_out,
-	output wire touch_csb, touch_clk, touch_data_in, cclk
+//	input wire touch_busy, touch_data_out,
+//	output wire touch_csb, touch_clk, touch_data_in, 
+	output wire cclk
 );
 
-wire [11:0] touch_x, touch_y, touch_z;
+//wire [11:0] touch_x, touch_y, touch_z;
 wire [9:0] adjusted_x;
 wire [8:0] adjusted_y;
 wire [9:0] tft_x;
@@ -39,7 +40,7 @@ wire [8:0] tft_y;
 wire tft_new_frame;
 
 //generate all the clocks
-clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n(cclk_n), .CLK_9M(tft_clk_buf), .CLK_9M_n(tft_clk_buf_n), .RESET(switch[0]), .LOCKED(clocks_locked));
+clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n(cclk_n), .CLK_9M(tft_clk_buf), .CLK_9M_n(tft_clk_buf_n), .RESET(reset), .LOCKED(clocks_locked));
 //pass the tft_clk through a DDR2 output buffer (so that it can drive external loads and so that internal loads are unaffected by large skew routing)
 ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n), .Q(tft_clk), .CE(1'b1));
 
@@ -47,8 +48,10 @@ ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n),
 assign led = 0;
 assign JB = 8'b0; //feel free to connect signals here so that you can probe them
 
-assign adjusted_x = (touch_x - 145) >> 2;
-assign adjusted_y = (touch_y - 95) >> 3;
+/*
+assign adjusted_x = touch_x;
+assign adjusted_y = touch_y;
+*/
 
 //intantiate the TFT driver
 tft_driver TFT(
@@ -64,10 +67,11 @@ tft_driver TFT(
 	.tft_green(tft_green),
 	.tft_blue(tft_blue),
 	.x(tft_x), .y(tft_y),
-	.xcorner(adjusted_x), .ycorner(adjusted_y),
+	.xcorner(30), .ycorner(30),
 	.new_frame(tft_new_frame)
 );
 
+/*
 //instantiate the touchpad controller
 touchpad_controller TOUCH(
 	.cclk(cclk), .rstb(rstb), .touch_clk(touch_clk),
@@ -79,22 +83,8 @@ touchpad_controller TOUCH(
 	.y(touch_y),
 	.z(touch_z)
 );
-
-/*
-always @(negedge touch_clk) begin
-	if (counter_num_requests == 4'd15 && counter_per_request > 20'd7) begin
-		touch_x_reg[counter_per_request - 20'd7] <= touch_data_out;
-	end
-	touch_data_in_reg <= x_request[counter_per_request];
-	if (counter_per_request == 5'd19) begin
-		counter_per_request <= 0;
-		counter_num_requests <= counter_num_requests + 1;
-	end
-	else begin
-		counter_per_request <= counter_per_request + 1;
-	end
-end
 */
+
 
 
 endmodule

@@ -207,32 +207,32 @@ NET "tft_vdd" SLEW = FAST;
 
 
 #touchpad?
-NET "touch_busy" LOC = U16; #input
-NET "touch_csb" LOC = U13;
-NET "touch_clk" LOC = R10;
-NET "touch_data_in" LOC = U15; #output of fpga
-NET "touch_data_out" LOC = V15; #input for fpga
-#NET "touch_contactb" LOC = V13; #input for fpga
+#NET "touch_busy" LOC = U16; #input
+#NET "touch_csb" LOC = U13;
+#NET "touch_clk" LOC = R10;
+#NET "touch_data_in" LOC = U15; #output of fpga
+#NET "touch_data_out" LOC = V15; #input for fpga
+##NET "touch_contactb" LOC = V13; #input for fpga
 #
-NET "touch_busy" IOSTANDARD = LVCMOS33;
-NET "touch_csb" IOSTANDARD = LVCMOS33;
-NET "touch_clk" IOSTANDARD = LVCMOS33;
-NET "touch_data_in" IOSTANDARD = LVCMOS33;
-NET "touch_data_out" IOSTANDARD = LVCMOS33;
-#NET "touch_contactb" IOSTANDARD = LVCMOS33;
+#NET "touch_busy" IOSTANDARD = LVCMOS33;
+#NET "touch_csb" IOSTANDARD = LVCMOS33;
+#NET "touch_clk" IOSTANDARD = LVCMOS33;
+#NET "touch_data_in" IOSTANDARD = LVCMOS33;
+#NET "touch_data_out" IOSTANDARD = LVCMOS33;
+##NET "touch_contactb" IOSTANDARD = LVCMOS33;
 #
-NET "touch_busy" DRIVE = 12;
-NET "touch_csb" DRIVE = 12;
-NET "touch_clk" DRIVE = 12;
-NET "touch_data_in" DRIVE = 12;
-NET "touch_data_out" DRIVE = 12;
-#NET "touch_contactb" DRIVE = 12;
+#NET "touch_busy" DRIVE = 12;
+#NET "touch_csb" DRIVE = 12;
+#NET "touch_clk" DRIVE = 12;
+#NET "touch_data_in" DRIVE = 12;
+#NET "touch_data_out" DRIVE = 12;
+##NET "touch_contactb" DRIVE = 12;
 #
-NET "touch_busy" SLEW = FAST;
-NET "touch_csb" SLEW = FAST;
-NET "touch_clk" SLEW = FAST;
-NET "touch_data_in" SLEW = FAST;
-NET "touch_data_out" SLEW = FAST;
-#NET "touch_contactb" SLEW = FAST;
+#NET "touch_busy" SLEW = FAST;
+#NET "touch_csb" SLEW = FAST;
+#NET "touch_clk" SLEW = FAST;
+#NET "touch_data_in" SLEW = FAST;
+#NET "touch_data_out" SLEW = FAST;
+##NET "touch_contactb" SLEW = FAST;
 
 NET "tft_clk" CLOCK_DEDICATED_ROUTE = FALSE;
