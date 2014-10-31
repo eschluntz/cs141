@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "E:/visual2_test/main.xst" -ofn "E:/visual2_test/main.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc atlys.ucf -p xc6slx45-csg324-2 main.ngc main.ngd  
+map -intstyle ise -p xc6slx45-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -ir off -pr off -lc off -power off -o main_map.ncd main.ngd main.pcf 
+xst -intstyle ise -ifn "E:/visual2_test/main.xst" -ofn "E:/visual2_test/main.syr" 
+xst -intstyle ise -ifn "E:/visual2_test/main.xst" -ofn "E:/visual2_test/main.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc atlys.ucf -p xc6slx45-csg324-2 main.ngc main.ngd  
+map -intstyle ise -p xc6slx45-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt 2 -ir off -pr off -lc off -power off -o main_map.ncd main.ngd main.pcf 
