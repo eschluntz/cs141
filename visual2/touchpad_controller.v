@@ -17,82 +17,127 @@
 // is sending, data_in is what the module is receiving.
 
 module touchpad_controller(
-	input wire cclk, rstb,
+	input wire cclk, rstb, // input clock and reset pin
 	input wire touch_busy,data_in,
 	output reg touch_clk, data_out,
 	output reg touch_csb,
-	output reg [11:0] x,y,z,
-	output reg [3:0] counter_num_requests,
-	output reg [4:0] counter_per_request,
-	output reg [1:0] counter_type
+	output reg [11:0] x,y,z, //coordinates and pressure of touch
+	output reg [3:0] counter_num_requests, // state debug
+	output reg [4:0] counter_per_request, // state debug
+	output reg [1:0] counter_type, // state debug
+	output reg [11:0] last_data, // temporary reg to store the current, un averaged value
+	output reg [14:0] sum_data // add up the data here to average it
 );
 
 wire [19:0] x_request;
 wire [19:0] y_request;
 wire [19:0] z_request;
 
+
 reg [4:0] clk_div_counter;
 
+// request patterns to send the touch pad
 assign x_request = 20'b11010011000000000000;
 assign y_request = 20'b10010011000000000000;
 assign z_request = 20'b10110011000000000000;
 
+
+/*
+	handle resets and generate our slower clock for the touchpad
+*/
 always @(posedge cclk) begin
+
+	// Reset module
 	if(~rstb) begin
 		x <= 12'd0;
 		y <= 12'd0;
 		z <= 12'd0;
+		last_data <= 12'd0;
+		sum_data <= 15'd0;
+		
 		touch_clk <= 0;
 		clk_div_counter <= 0;
 		counter_num_requests <= 0;
 		counter_per_request <= 0;
 		counter_type <= 0;
+		touch_csb <= 1;
 	end
+	
+	// Beginning of main code
 	else begin
 		touch_csb <= 0;
+		
+		// incrementing our clock division
 		if(clk_div_counter != (`TOUCH_CLK_DIV_COUNT-1)) begin
 			clk_div_counter <= clk_div_counter + 6'd1;
 		end
-		else begin
+		
+		// reached end of div cycle, 1/2 of touch_clk
+		else begin 
 			clk_div_counter <= 0;
 			touch_clk <= ~touch_clk;
-			if(touch_clk) begin  //negative edge logic
-				if (counter_num_requests == 4'd1 && counter_per_request > 5'd7) begin
-					if (counter_type == 0) begin
-						x[counter_per_request - 5'd8] <= data_in;
-					end else if (counter_type == 1)  begin
-						y[counter_per_request - 5'd8] <= data_in;
-					end else if (counter_type == 2) begin
-						z[counter_per_request - 5'd8] <= data_in;
-					end
-				end
-				if (counter_type == 0) begin
-					data_out <= x_request[counter_per_request];
-				end else if (counter_type == 1)  begin
-					data_out <= y_request[counter_per_request];
-				end else if (counter_type == 2) begin
-					data_out <= z_request[counter_per_request];
-				end
-
-				if (counter_per_request == 5'd19) begin
-					counter_per_request <= 0;
-					if (counter_num_requests == 4'd1) begin
-						counter_num_requests <= 0;
-						counter_type <= counter_type + 1;
-						if (counter_type == 4) begin
-							counter_type <= 0;
-						end
-					end 
-					else begin
-						counter_num_requests <= counter_num_requests + 1;
-					end
-				end
-				else begin
-					counter_per_request <= counter_per_request + 1;
-				end
-				/* PUT ALL CODE HERE FOR NEGATIVE EDGE FSM LOGIC! */
-			end
 		end
+	end
+end
+
+/*
+	transition logic at the speed of our slower clock
+	send info to the touchpad, but wait for posedge to read
+	
+	counter_type: specifies whether reading x, y, z
+	counter_num_requests: number of times to repeat each individual request
+	counter_per_request: our state going through the current request
+*/
+always @(negedge touch_clk) begin
+			
+	if (counter_type == 0) begin
+		data_out <= x_request[counter_per_request];
+	end else if (counter_type == 1)  begin
+		data_out <= y_request[counter_per_request];
+	end else if (counter_type == 2) begin
+		data_out <= z_request[counter_per_request];
+	end
+
+	if (counter_per_request == 5'd19) begin // finished a request
+		counter_per_request <= 0;
+		
+		// take data and add to average
+		sum_data <= sum_data + last_data;
+		last_data <= 0;
+		
+		if (counter_num_requests == 4'd7) begin // finished all requests in group
+			counter_num_requests <= 0;
+			
+			// take average from all requests and return data
+			if (counter_type == 0) begin //            // x
+				counter_type <= counter_type + 1;
+				x <= sum_data[14:3];
+				sum_data <= 0;
+			end else if (counter_type == 1) begin //   // y
+				counter_type <= counter_type + 1;
+				y <= sum_data[14:3];
+				sum_data <= 0;
+			end else begin //	                         // z  
+				counter_type <= 0;
+				z <= sum_data[14:3];
+				sum_data <= 0;
+			end
+
+		end else begin // next request
+			counter_num_requests <= counter_num_requests + 1;
+		end
+	end else begin // next time step
+		counter_per_request <= counter_per_request + 1;
+	end
+end
+
+/* pos edge logic
+	responsible for reading in the data sent back by the touchpad
+*/
+always @(posedge touch_clk) begin
+	// have we reached the data yet?
+	if (counter_per_request > 5'd8) begin
+		last_data[counter_per_request - 5'd9] <= data_in;
 	end
 end
 

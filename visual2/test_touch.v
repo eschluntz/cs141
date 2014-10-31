@@ -40,6 +40,8 @@ module test_touch;
 	wire [3:0] counter_num_requests;
 	wire [4:0] counter_per_request;
 	wire [1:0] counter_type;
+	wire [11:0] last_data;
+	wire [14:0] sum_data;
 
 
 	// Instantiate the Unit Under Test (UUT)
@@ -56,7 +58,9 @@ module test_touch;
 		.z(z),
 		.counter_num_requests(counter_num_requests),
 		.counter_per_request(counter_per_request),
-		.counter_type(counter_type)
+		.counter_type(counter_type),
+		.last_data(last_data),
+		.sum_data(sum_data)
 	);
 
 	initial begin
@@ -65,7 +69,8 @@ module test_touch;
 		rstb = 0;
 		touch_busy = 0;
 		data_in = 1;
-		repeat (3) @(posedge cclk);
+		
+		repeat (5) @(posedge cclk);
 		rstb = 1;
 		
         
