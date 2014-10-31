@@ -5,10 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"E:/visual2_test/main.v" Line 42: Port <arg fmt="%s" index="1">R</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual2/main.v" Line 45: Port <arg fmt="%s" index="1">R</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"E:/visual2_test/main.v" Line 70: Port <arg fmt="%s" index="1">counter_num_requests</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual2/main.v" Line 73: Port <arg fmt="%s" index="1">counter_num_requests</arg> is not connected to this instance
 </msg>
 
 </messages>
