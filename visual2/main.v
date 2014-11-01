@@ -13,9 +13,24 @@ module main(
 	output wire tft_backlight, tft_clk, tft_data_ena,
 	output wire tft_display,tft_vdd,
 	output wire [7:0] tft_red, tft_green, tft_blue,
+<<<<<<< HEAD
 	output wire touch_clk, touch_data_in
 );
 
+=======
+	//touchpad IO
+//	input wire touch_busy, touch_data_out,
+//	output wire touch_csb, touch_clk, touch_data_in, 
+	output wire cclk
+);
+
+//wire [11:0] touch_x, touch_y, touch_z;
+wire [9:0] adjusted_x;
+wire [8:0] adjusted_y;
+wire [9:0] tft_x;
+wire [8:0] tft_y;
+	
+>>>>>>> origin/master
 //clocking signals
 wire cclk, cclk_n, tft_clk_buf, tft_clk_buf_n, clocks_locked;
 wire reset;
@@ -39,6 +54,19 @@ clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n
 //pass the tft_clk through a DDR2 output buffer (so that it can drive external loads and so that internal loads are unaffected by large skew routing)
 ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n), .Q(tft_clk), .CE(1'b1));
 
+<<<<<<< HEAD
+=======
+//debugging
+assign led = 0;
+assign JB = 8'b0; //feel free to connect signals here so that you can probe them
+
+/*
+assign adjusted_x = touch_x;
+assign adjusted_y = touch_y;
+*/
+
+//intantiate the TFT driver
+>>>>>>> origin/master
 tft_driver TFT(
 	.cclk(cclk),
 	.rstb(rstb),
@@ -54,6 +82,7 @@ tft_driver TFT(
 	.xcorner(xcorner),
 	.ycorner(ycorner),
 	.x(tft_x), .y(tft_y),
+<<<<<<< HEAD
 	.new_frame(tft_new_frame)
 );
 
@@ -63,6 +92,13 @@ wire [11:0] touch_x, touch_y, touch_z; //coordinates and pressure of touch
 
 
 
+=======
+	.xcorner(30), .ycorner(30),
+	.new_frame(tft_new_frame)
+);
+
+/*
+>>>>>>> origin/master
 //instantiate the touchpad controller
 touchpad_controller TOUCH(
 	.cclk(cclk), .rstb(rstb), .touch_clk(touch_clk),
@@ -74,6 +110,7 @@ touchpad_controller TOUCH(
 	.y(touch_y),
 	.z(touch_z)
 );
+<<<<<<< HEAD
 
 always @(posedge cclk) begin
 	if (~rstb) begin
@@ -115,6 +152,10 @@ always @(posedge cclk) begin
 		ycorner <= 10'd171;
 	end
 end
+
+=======
+*/
+>>>>>>> origin/master
 
 
 

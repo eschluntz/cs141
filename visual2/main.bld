@@ -1,0 +1,61 @@
+Release 13.4 ngdbuild O.87xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Command Line: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc atlys.ucf -p
+xc6slx45-csg324-2 main.ngc main.ngd
+
+Reading NGO file "D:/cs141/visual2/main.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "atlys.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+ERROR:ConstraintSystem:59 - Constraint <NET "touch_csb" LOC = U13;>
+   [atlys.ucf(211)]: NET "touch_csb" not found.  Please verify that:
+   1. The specified design element actually exists in the original design.
+   2. The specified object is spelled correctly in the constraint source file.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "touch_csb" LOC = U13;> [atlys.ucf(211)]' could not be found and so the
+   Locate constraint will be removed.
+
+ERROR:ConstraintSystem:59 - Constraint <NET "touch_csb" IOSTANDARD = LVCMOS33;>
+   [atlys.ucf(218)]: NET "touch_csb" not found.  Please verify that:
+   1. The specified design element actually exists in the original design.
+   2. The specified object is spelled correctly in the constraint source file.
+
+ERROR:ConstraintSystem:59 - Constraint <NET "touch_csb" DRIVE = 12;>
+   [atlys.ucf(225)]: NET "touch_csb" not found.  Please verify that:
+   1. The specified design element actually exists in the original design.
+   2. The specified object is spelled correctly in the constraint source file.
+
+ERROR:ConstraintSystem:59 - Constraint <NET "touch_csb" SLEW = FAST;>
+   [atlys.ucf(232)]: NET "touch_csb" not found.  Please verify that:
+   1. The specified design element actually exists in the original design.
+   2. The specified object is spelled correctly in the constraint source file.
+
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     4
+  Number of warnings:   1
+
+Total memory usage is 160224 kilobytes
+
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
+
+One or more errors were found during NGDBUILD.  No NGD file will be written.
+
+Writing NGDBUILD log file "main.bld"...
