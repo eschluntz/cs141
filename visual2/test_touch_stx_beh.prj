@@ -1,0 +1,4 @@
+verilog isim_temp "touchpad_controller.v"
+verilog isim_temp "ad7873.v"
+verilog isim_temp "test_touch_2.v"
+verilog isim_temp "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,0 +1,35 @@
+Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/visual1/main_isim_beh.exe -prj D:/cs141/visual1/main_beh.prj work.main work.glbl 
+ISim O.87xd (signature 0xc3576ebc)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/cs141/visual1/ipcore_dir/clock_generator.v" into library work
+Analyzing Verilog file "D:/cs141/visual1/ipcore_dir/clock_generator/example_design/clock_generator_exdes.v" into library work
+Analyzing Verilog file "D:/cs141/visual1/pulse_train.v" into library work
+Analyzing Verilog file "D:/cs141/visual1/pwm_generator.v" into library work
+Analyzing Verilog file "D:/cs141/visual1/touchpad_controller.v" into library work
+Analyzing Verilog file "D:/cs141/visual1/tft_driver.v" into library work
+Analyzing Verilog file "D:/cs141/visual1/main.v" into library work
+Analyzing Verilog file "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "D:/cs141/visual1/main.v" Line 40: Port R is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/cs141/visual1/main.v" Line 67: Port counter_num_requests is not connected to this instance
+Completed static elaboration
+Compiling module IBUFG
+Compiling module PLL_ADV(BANDWIDTH="OPTIMIZED",CL...
+Compiling module PLL_BASE(CLKFBOUT_MULT=9,CLKIN_P...
+Compiling module BUFG
+Compiling module clock_generator
+Compiling module ODDR2_default
+Compiling module pulse_train
+Compiling module pwm_generator
+Compiling module tft_driver
+Compiling module touchpad_controller
+Compiling module main
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 4 sub-compilation(s) to finish...
+Compiled 12 Verilog Units
+Built simulation executable D:/cs141/visual1/main_isim_beh.exe
+Fuse Memory Usage: 42708 KB
+Fuse CPU Usage: 545 ms

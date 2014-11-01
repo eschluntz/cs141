@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/cs141/visual2clean/visual2/touchpad_controller_isim_beh.exe" -prj "D:/cs141/visual2clean/visual2/touchpad_controller_beh.prj" "work.touchpad_controller" "work.glbl" 

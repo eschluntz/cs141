@@ -1,0 +1,18 @@
+Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/visual2clean/visual2/touchpad_controller_isim_beh.exe -prj D:/cs141/visual2clean/visual2/touchpad_controller_beh.prj work.touchpad_controller work.glbl 
+ISim O.87xd (signature 0xc3576ebc)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/cs141/visual2clean/visual2/touchpad_controller.v" into library work
+Analyzing Verilog file "D:/cs141/visual2clean/visual2/ipcore_dir/clock_generator/example_design/clock_generator_exdes.v" into library work
+Analyzing Verilog file "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module touchpad_controller
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 2 Verilog Units
+Built simulation executable D:/cs141/visual2clean/visual2/touchpad_controller_isim_beh.exe
+Fuse Memory Usage: 27372 KB
+Fuse CPU Usage: 343 ms

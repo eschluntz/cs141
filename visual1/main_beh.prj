@@ -1,0 +1,8 @@
+verilog work "ipcore_dir/clock_generator.v"
+verilog work "ipcore_dir/clock_generator/example_design/clock_generator_exdes.v"
+verilog work "pulse_train.v"
+verilog work "pwm_generator.v"
+verilog work "touchpad_controller.v"
+verilog work "tft_driver.v"
+verilog work "main.v"
+verilog work "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,0 +1,98 @@
+--------------------------------------------------------------------------------
+Release 13.4 Trace  (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s
+2 -n 3 -fastpaths -xml main.twx main.ncd -o main.twr main.pcf -ucf atlys.ucf
+
+Design file:              main.ncd
+Physical constraint file: main.pcf
+Device,package,speed:     xc6slx45,csg324,C,-2 (PRODUCTION 1.21 2012-01-07)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock unbuf_clk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+rstb        |    8.623(R)|      SLOW  |   -4.107(R)|      FAST  |cclk_OBUF         |   0.000|
+            |    8.881(R)|      SLOW  |   -0.476(R)|      FAST  |tft_clk_buf       |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock unbuf_clk to Pad
+-------------+-----------------+------------+-----------------+------------+------------------+--------+
+             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination  |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+-------------+-----------------+------------+-----------------+------------+------------------+--------+
+tft_backlight|        14.688(R)|      SLOW  |         4.560(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_blue<5>  |        12.401(R)|      SLOW  |         4.149(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_blue<6>  |        12.466(R)|      SLOW  |         4.224(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_blue<7>  |        12.401(R)|      SLOW  |         4.149(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_clk      |         5.365(R)|      SLOW  |         1.864(R)|      FAST  |tft_clk_buf       |   0.000|
+             |         5.427(R)|      SLOW  |         1.942(R)|      FAST  |tft_clk_buf_n     |   0.000|
+tft_display  |         5.308(R)|      SLOW  |         1.802(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_green<5> |        13.403(R)|      SLOW  |         4.326(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_green<6> |        13.542(R)|      SLOW  |         4.379(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_red<5>   |        14.620(R)|      SLOW  |         5.100(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_red<6>   |        14.359(R)|      SLOW  |         4.963(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_red<7>   |        14.351(R)|      SLOW  |         4.956(R)|      FAST  |tft_clk_buf       |   0.000|
+tft_vdd      |        10.049(R)|      SLOW  |         4.274(R)|      FAST  |tft_clk_buf       |   0.000|
+touch_clk    |         9.220(R)|      SLOW  |         4.028(R)|      FAST  |cclk_OBUF         |   0.000|
+-------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock unbuf_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+unbuf_clk      |    4.170|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+switch<0>      |tft_backlight  |   21.298|
+switch<1>      |tft_backlight  |   20.954|
+switch<2>      |tft_backlight  |   20.612|
+switch<3>      |tft_backlight  |   17.902|
+switch<4>      |tft_backlight  |   15.561|
+switch<5>      |tft_backlight  |   16.152|
+switch<6>      |tft_backlight  |   15.242|
+switch<7>      |tft_backlight  |   17.162|
+unbuf_clk      |cclk           |    6.192|
+---------------+---------------+---------+
+
+
+Analysis completed Fri Oct 31 18:33:32 2014 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 265 MB
+
+
+
