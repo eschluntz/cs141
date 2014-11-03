@@ -24,7 +24,7 @@ wire reset;
 assign reset = ~rstb;
 
 //touchpad signals
-wire [8:0] touch_x, touch_y, touch_z;
+wire [11:0] touch_x, touch_y, touch_z;
 //tft signals
 wire [9:0] tft_x;
 wire [8:0] tft_y;
@@ -39,11 +39,25 @@ ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n),
 assign led = 0;
 assign JB = 8'b0; //feel free to connect signals here so that you can probe them
 
-wire [9:0] locked_touch_x;
-wire [8:0] locked_touch_y;
+reg [9:0] locked_touch_x;
+reg [8:0] locked_touch_y;
+reg [10:0] counter;
 
-assign locked_touch_x = touch_x;
-assign locked_touch_y = touch_y;
+always @(posedge cclk) begin
+	if (reset) begin
+		counter <= 0;
+		locked_touch_x <= 0;
+		locked_touch_y <= 0;
+	end
+	else begin
+		if (counter == 1000) begin
+			locked_touch_x <= (touch_z[11] || touch_z[10] || touch_z[9]) ? (touch_x - 300) >> 2 : 0;
+			locked_touch_y <= (touch_z[11] || touch_z[10] || touch_z[9]) ? (touch_y - 150) >> 2 : 0;
+		end
+		else
+			counter <= counter + 1;
+		end
+end
 //intantiate the TFT driver
 
 tft_driver TFT(

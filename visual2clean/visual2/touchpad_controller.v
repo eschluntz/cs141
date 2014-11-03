@@ -22,15 +22,15 @@ module touchpad_controller(
 	output reg touch_clk, data_out,
 	output reg touch_csb,
 	output reg [11:0] x,y,z, //coordinates and pressure of touch
-	output reg [3:0] counter_num_requests, // state debug
+	output reg [10:0] counter_num_requests, // state debug
 	output reg [4:0] counter_per_request, // state debug
 	output reg [1:0] counter_type, // state debug
 	output reg [11:0] last_data, // temporary reg to store the current, un averaged value
-	output reg [14:0] sum_data // add up the data here to average it
+	output reg [20:0] sum_data // add up the data here to average it
 );
 
-wire [22:0] x_request;
-wire [22:0] y_request;
+wire [26:0] x_request;
+wire [26:0] y_request;
 wire [22:0] z_request;
 
 
@@ -49,7 +49,7 @@ always @(posedge cclk) begin
 		y <= 12'd0;
 		z <= 12'd0;
 		last_data <= 12'd0;
-		sum_data <= 15'd0;
+		sum_data <= 0;
 		counter_num_requests <= 0;
 		counter_per_request <= 0;
 		counter_type <= 0;
@@ -74,28 +74,32 @@ always @(posedge cclk) begin
 					data_out <= z_request[22-counter_per_request];
 				end
 
-				if (counter_per_request == 5'd19) begin // finished a request
+				if (counter_per_request == 5'd22) begin // finished a request
 					counter_per_request <= 0;
-					
+					if (counter_num_requests > 15) begin
 					// take data and add to average
-					sum_data <= sum_data + last_data;
+						sum_data <= sum_data + last_data;
+					end
 					last_data <= 0;
 					
-					if (counter_num_requests == 4'd7) begin // finished all requests in group
+					if (counter_num_requests == 527) begin // finished all requests in group
 						counter_num_requests <= 0;
 						
 						// take average from all requests and return data
 						if (counter_type == 0) begin //            // x
 							counter_type <= counter_type + 1;
-							x <= last_data[14:3];
+							x <= sum_data[20:9];
+							//x <= last_data;
 							sum_data <= 0;
 						end else if (counter_type == 1) begin //   // y
 							counter_type <= counter_type + 1;
-							y <= last_data[14:3];
+							y <= sum_data[20:9];
+							//y <= last_data;
 							sum_data <= 0;
 						end else begin //	                         // z  
 							counter_type <= 0;
-							z <= last_data[14:3];
+							z <= sum_data[20:9];
+							//z <= last_data;
 							sum_data <= 0;
 						end
 
@@ -107,8 +111,8 @@ always @(posedge cclk) begin
 				end			
 			end
 			if(~touch_clk) begin //positive edge logic
-				if (counter_per_request >= 5'd8 && counter_per_request < 5'd20) begin
-					last_data[counter_per_request - 5'd8] <= data_in;
+				if (counter_per_request > 5'd9 && counter_per_request < 5'd22) begin
+					last_data[11-(counter_per_request - 5'd10)] <= data_in;
 				end
 			end
 		end

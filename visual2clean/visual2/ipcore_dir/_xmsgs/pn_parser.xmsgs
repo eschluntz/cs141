@@ -11,8 +11,5 @@
 <msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/visual2clean/visual2/ipcore_dir/clock_generator.v\&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/visual2clean/visual2/ipcore_dir/clock_generator/example_design/clock_generator_exdes.v\&quot; into library work</arg>
-</msg>
-
 </messages>
 
