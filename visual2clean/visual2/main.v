@@ -51,8 +51,8 @@ always @(posedge cclk) begin
 	end
 	else begin
 		if (counter == 1000) begin
-			locked_touch_x <= (touch_z[11] || touch_z[10] || touch_z[9]) ? (touch_x - 300) >> 2 : 0;
-			locked_touch_y <= (touch_z[11] || touch_z[10] || touch_z[9]) ? (touch_y - 150) >> 2 : 0;
+			locked_touch_x <= (touch_z[11] || touch_z[10] || touch_z[9]) ? (touch_x - 330) >> 3 : locked_touch_x;
+			locked_touch_y <= (touch_z[11] || touch_z[10] || touch_z[9]) ? (touch_y - 170) >> 4 : locked_touch_y;
 		end
 		else
 			counter <= counter + 1;
