@@ -58,7 +58,7 @@ assign video_ram_wr_ena = wr_ena || clearing;
 assign video_ram_wr_addr = wr_addr;
 wire [8:0] ram_wr_x, ram_wr_y;
 wire [8:0] clear_data;
-assign clear_data = 9'b000011;
+assign clear_data = 9'b111111;
 assign ram_wr_x = (clearing) ? x : wr_x;
 assign ram_wr_y = (clearing) ? y : wr_y;
 assign video_ram_wr_data = (clearing) ? clear_data : wr_data;

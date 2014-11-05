@@ -1,0 +1,7 @@
+verilog work "tft_address_generator.v"
+verilog work "ipcore_dir/coregen_video_ram.v"
+verilog work "touchpad_controller.v"
+verilog work "tft_driver.v"
+verilog work "ipcore_dir/clock_generator.v"
+verilog work "ipcore_dir/clock_generator/example_design/clock_generator_exdes.v"
+verilog work "main.v"

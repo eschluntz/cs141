@@ -53,7 +53,7 @@ assign tft_clear = button_center;
 assign tft_wr_ena = (touch_z[11] || touch_z[10] || touch_z[9]); // high pressure to write
 assign tft_wr_x = (touch_x - 330) >> 3;
 assign tft_wr_y = (touch_y - 170) >> 4;
-assign tft_wr_data = 9'b111000000; // always write red for now
+assign tft_wr_data = 9'b000000000; // always write red for now
 
 
 
