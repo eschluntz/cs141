@@ -10,7 +10,7 @@ public class Assembler {
 	public static void main(String[] args) throws IOException {
 		HashMap<String, Integer> insts = new HashMap<String, Integer>();
 		BufferedReader br = new BufferedReader(new FileReader(
-				new File("/Users/Lucy/Documents/workspace/CS141/src/dict.in")));
+				new File("dict.in")));
 		String line = br.readLine();
 		while (line != null) {
 			String[] splits = line.split(" ");
@@ -20,7 +20,7 @@ public class Assembler {
 		
 		HashMap<String, Integer> rinsts = new HashMap<String, Integer>();
 		br = new BufferedReader(new FileReader(
-				new File("/Users/Lucy/Documents/workspace/CS141/src/rdict.in")));
+				new File("rdict.in")));
 		line = br.readLine();
 		while (line != null) {
 			String[] splits = line.split(" ");
@@ -30,7 +30,7 @@ public class Assembler {
 
 		HashMap<String, Integer> regs = new HashMap<String, Integer>();
 		br = new BufferedReader(new FileReader(
-				new File("/Users/Lucy/Documents/workspace/CS141/src/regs.in")));
+				new File("regs.in")));
 		line = br.readLine();
 		while (line != null) {
 			String[] splits = line.split(" ");
