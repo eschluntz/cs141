@@ -67,29 +67,46 @@ public class Assembler {
 						temp3[1] = temp3[1].replace(",","").trim();
 						temp += regs.get(temp3[1]) << 21;						
 					} else {
-						temp3[1] = temp3[1].replace(",","").trim();
-						temp += regs.get(temp3[1]) << 11;
-						temp3[2] = temp3[2].replace(",","").trim();
-						temp += regs.get(temp3[2]) << 21;
 						Integer tempnum = regs.get(temp3[3]);
 						if (tempnum != null){
+							temp3[1] = temp3[1].replace(",","").trim();
+							temp += regs.get(temp3[1]) << 11;
+							temp3[2] = temp3[2].replace(",","").trim();
+							temp += regs.get(temp3[2]) << 21;
 							temp += tempnum << 16;
 						} else if (labels.get(temp3[3]) != null){
+							temp3[1] = temp3[1].replace(",","").trim();
+							temp += regs.get(temp3[1]) << 11;
+							temp3[2] = temp3[2].replace(",","").trim();
+							temp += regs.get(temp3[2]) << 21;
 							tempnum = labels.get(temp3[3]) << 6;
 							temp += tempnum;
 						} else  {
+							temp3[1] = temp3[1].replace(",","").trim();
+							temp += regs.get(temp3[1]) << 11;
+							temp3[2] = temp3[2].replace(",","").trim();
+							temp += regs.get(temp3[2]) << 16;
 							temp += Integer.parseInt(temp3[3]) << 6;
 						}
 					}
 				} else if (temp3.length == 4) {
 					temp3[2] = temp3[2].replace(",","").trim();
 					temp3[1] = temp3[1].replace(",","").trim();
-					temp += regs.get(temp3[2]) << 21;
-					temp += regs.get(temp3[1]) << 16;
-					if (labels.get(temp3[3]) != null) {
-						temp += labels.get(temp3[3]) << 2;
+					if (temp3[0].equals("beq") || temp3[0].equals("bne")) {
+						temp += regs.get(temp3[2]) << 16;
+						temp += regs.get(temp3[1]) << 21;
 					} else {
-						temp += Integer.parseInt(temp3[3]);
+						temp += regs.get(temp3[2]) << 21;
+						temp += regs.get(temp3[1]) << 16;						
+					}
+					if (labels.get(temp3[3]) != null) {
+						temp += labels.get(temp3[3])+(0xFFFF-i);
+					} else {
+						if(Integer.parseInt(temp3[3]) < 0) {
+							temp += 0xFFFF+Integer.parseInt(temp3[3])+1;
+						} else {
+							temp += Integer.parseInt(temp3[3]);
+						}
 					}
 				}
 				else if (temp3.length == 3){
@@ -97,7 +114,12 @@ public class Assembler {
 					temp += regs.get(temp3[1]) << 16;
 					String[] tempsplit = temp3[2].split("\\(");
 					temp += regs.get(tempsplit[1].replace(")","")) << 21;
-					temp += Integer.parseInt(tempsplit[0]);
+					if(Integer.parseInt(tempsplit[0]) < 0) {
+						temp += 0xFFFF+Integer.parseInt(tempsplit[0])+1;
+					} else {
+						temp += Integer.parseInt(tempsplit[0]);
+					}
+
 				} else if (temp3.length == 2) {
 					Integer tempnum = regs.get(temp3[1]);
 					if (tempnum == null){
