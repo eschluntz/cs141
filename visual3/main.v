@@ -24,7 +24,7 @@ wire reset;
 assign reset = ~rstb;
 
 //touchpad signals
-wire [8:0] touch_x, touch_y, touch_z;
+wire [11:0] touch_x, touch_y, touch_z;
 
 //tft signals
 wire [9:0] tft_x;
@@ -42,9 +42,17 @@ ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n),
 assign led = 0;
 assign JB = 8'b0;
 
-//intantiate the TFT driver
+// tft control 
 assign tft_clear = button_center;
+assign tft_wr_ena = (touch_z[11] || touch_z[10] || touch_z[9]); // high pressure to write
+assign tft_wr_x = touch_x;
+assign tft_wr_y = touch_y;
+assign tft_wr_data = 9'b111000000; // always write red for now
 
+
+
+
+//intantiate the TFT driver
 tft_driver TFT(
 	.cclk(cclk),
 	.rstb(rstb),

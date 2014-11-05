@@ -19,7 +19,7 @@ module tft_driver(
 	output wire [7:0] tft_red, tft_green, tft_blue,
     
 	input wire wr_ena,  // write enable signal for video RAM. Active high. This should only be high if the screen is being touched.
-    input wire clear_screen,  // Tells the tft_driver to clear the screen. Input is received from a button pressed on the FPGA.
+   input wire clear_screen,  // Tells the tft_driver to clear the screen. Input is received from a button pressed on the FPGA.
 	output reg clear_done,  // Tells the main module that the clear process is complete.
 	input wire [8:0] wr_x,  // x coordinate of the point currently being touched.
 	input wire [8:0] wr_y,  // y coordinate of the point currently being touched.
@@ -47,6 +47,10 @@ wire [(`TFT_BITS_PER_PIXEL-1):0] color;
 // This value will be written to the video RAM. It needs to be set based on whether we are clearing the screen or if we are writing a new value to the RAM.
 wire [(`TFT_BITS_PER_PIXEL-1):0] video_ram_wr_data;
 
+
+// writing to ram
+assign video_ram_wr_ena = wr_ena;
+assign video_ram_wr_addr = wr_addr;
 
 coregen_video_ram VRAM(
 	.clka(cclk), .clkb(tft_clk),
