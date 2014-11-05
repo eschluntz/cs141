@@ -11,19 +11,7 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/main.v" Line 56: Port <arg fmt="%s" index="1">clear_done</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/tft_driver.v" Line 55: Port <arg fmt="%s" index="1">douta</arg> is not connected to this instance
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"D:/cs141/visual3/main.v" Line 82: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">x</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">9</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"D:/cs141/visual3/main.v" Line 83: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">y</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">9</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"D:/cs141/visual3/main.v" Line 84: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">z</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">9</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/cs141/visual3/main.v" Line 47: Element index <arg fmt="%d" index="1">11</arg> into <arg fmt="%s" index="2">touch_z</arg> is out of bounds
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/tft_driver.v" Line 57: Port <arg fmt="%s" index="1">douta</arg> is not connected to this instance
 </msg>
 
 </messages>

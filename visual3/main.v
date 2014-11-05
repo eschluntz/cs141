@@ -39,14 +39,15 @@ clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n
 ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n), .Q(tft_clk), .CE(1'b1));
 
 //debugging
-assign led = 0;
+assign led[0] = tft_wr_ena;
+assign led[7:1] = 7'b0;
 assign JB = 8'b0;
 
 // tft control 
 assign tft_clear = button_center;
 assign tft_wr_ena = (touch_z[11] || touch_z[10] || touch_z[9]); // high pressure to write
-assign tft_wr_x = touch_x;
-assign tft_wr_y = touch_y;
+assign tft_wr_x = (touch_x - 330) >> 3;
+assign tft_wr_y = (touch_y - 170) >> 4;
 assign tft_wr_data = 9'b111000000; // always write red for now
 
 
