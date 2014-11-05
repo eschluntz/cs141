@@ -8,10 +8,10 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/main.v" Line 39: Port <arg fmt="%s" index="1">R</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/main.v" Line 56: Port <arg fmt="%s" index="1">clear_done</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/main.v" Line 62: Port <arg fmt="%s" index="1">clear_done</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/tft_driver.v" Line 57: Port <arg fmt="%s" index="1">douta</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/visual3/tft_driver.v" Line 68: Port <arg fmt="%s" index="1">douta</arg> is not connected to this instance
 </msg>
 
 </messages>

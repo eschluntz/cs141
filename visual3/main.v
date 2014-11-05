@@ -39,8 +39,13 @@ clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n
 ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n), .Q(tft_clk), .CE(1'b1));
 
 //debugging
+wire clearing;
+wire [17:0] clearing_counter;
+
 assign led[0] = tft_wr_ena;
-assign led[7:1] = 7'b0;
+assign led[1] = tft_clear;
+assign led[2] = clearing;
+assign led[7:3] = clearing_counter[17:13];
 assign JB = 8'b0;
 
 // tft control 
@@ -70,7 +75,9 @@ tft_driver TFT(
 	.wr_y(tft_wr_y),
 	.wr_data(tft_wr_data),
 	.x(tft_x), .y(tft_y),
-	.clear_screen(tft_clear)
+	.clear_screen(tft_clear),
+	.clearing(clearing),
+	.clearing_counter(clearing_counter)
 );
 
 //instantiate the touchpad controller
