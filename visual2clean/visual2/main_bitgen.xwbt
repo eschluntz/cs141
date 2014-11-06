@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=E:\cs141\visual2clean\visual2\main.ncd
-OUTFILE=E:\cs141\visual2clean\visual2\main.bit
+INFILE=D:\cs141\visual2clean\visual2\main.ncd
+OUTFILE=D:\cs141\visual2clean\visual2\main.bit
 FAMILY=Spartan6
 PART=xc6slx45-2csg324
-WORKINGDIR=E:\cs141\visual2clean\visual2
+WORKINGDIR=D:\cs141\visual2clean\visual2
 LICENSE=WebPack
 USER_INFO=207362390_0_0_257
