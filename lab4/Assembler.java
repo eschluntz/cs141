@@ -3,11 +3,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 
 public class Assembler {
 	public static void main(String[] args) throws IOException {
+		
+		// checking inputs
+		if (args.length != 2) {
+			System.out.println(args.length);
+			System.out.println("Usage: Assembler <input.asm> <output.machine>");
+			return;
+		}
+		
 		HashMap<String, Integer> insts = new HashMap<String, Integer>();
 		BufferedReader br = new BufferedReader(new FileReader(
 				new File("dict.in")));
@@ -39,12 +48,16 @@ public class Assembler {
 		}
 
 		HashMap<String, Integer> labels = new HashMap<String, Integer>();
-		br = new BufferedReader(new InputStreamReader(
-				System.in));
+		br = new BufferedReader(new FileReader(
+				new File(args[0])));
 		int i = 0;
 		String input = br.readLine();
 		String withcomment = null;
 		String command = null;
+		
+		// getting output file
+		PrintWriter writer = new PrintWriter(args[1]);
+		
 		
 		while (input != null) {
 			String[] temp1 = input.split(":");
@@ -129,15 +142,18 @@ public class Assembler {
 					}
 				}
 				System.out.println(String.format("%08X",temp));
+				writer.println(String.format("%08X",temp));
 			} 
 			else {
 				System.out.println(String.format("%08X",0));
+				writer.println(String.format("%08X",0));
 			}
 			
 			
 			i++;
 			input = br.readLine();
 		}
+		writer.close();
 		
 	}
 }
