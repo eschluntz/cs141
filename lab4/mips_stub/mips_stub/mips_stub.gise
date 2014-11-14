@@ -45,6 +45,8 @@
     <transform xil_pn:end_ts="1416010021" xil_pn:in_ck="3112948215578817951" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1416010021">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputAdded"/>
       <outfile xil_pn:name="cpu_rtl/memory.v"/>
       <outfile xil_pn:name="cpu_rtl/mips.v"/>
       <outfile xil_pn:name="cpu_rtl/test_mips.v"/>
@@ -68,6 +70,7 @@
     <transform xil_pn:end_ts="1416010021" xil_pn:in_ck="3112948215578817951" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1416010021">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="cpu_rtl/memory.v"/>
       <outfile xil_pn:name="cpu_rtl/mips.v"/>
       <outfile xil_pn:name="cpu_rtl/test_mips.v"/>
@@ -77,6 +80,8 @@
     <transform xil_pn:end_ts="1416010024" xil_pn:in_ck="4478480090166210634" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-3240688382371567819" xil_pn:start_ts="1416010021">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
@@ -87,6 +92,8 @@
     <transform xil_pn:end_ts="1416010025" xil_pn:in_ck="-7831669384773335562" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2007985378056683800" xil_pn:start_ts="1416010024">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="test_register_isim_beh.wdb"/>
