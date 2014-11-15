@@ -12,7 +12,8 @@ module control(
 	output wire alu_src_a,
 	
 	output wire pc_write, branch, pc_src, reg_write,
-	output wire i_or_d, mem_write, ir_write
+	output wire i_or_d, mem_write, ir_write,
+	output wire reg_dst, mem_to_reg
 	);
 	
 

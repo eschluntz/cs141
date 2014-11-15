@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/brownell/Downloads/mips_stub/mips_stub/mips_stub/cpu_rtl/test_mips.v";
+static const char *ng0 = "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {5, 0};
 static int ng3[] = {1, 0};
@@ -81,10 +81,10 @@ LAB4:    xsi_set_current_line(33, ng0);
     t5 = (~(t4));
     t6 = *((unsigned int *)t2);
     t7 = (t6 & t5);
-    t8 = (t0 + 5584);
+    t8 = (t0 + 5536);
     *((int *)t8) = t7;
 
-LAB5:    t9 = (t0 + 5584);
+LAB5:    t9 = (t0 + 5536);
     if (*((int *)t9) > 0)
         goto LAB6;
 
@@ -99,18 +99,18 @@ LAB7:    xsi_set_current_line(38, ng0);
     t5 = (~(t4));
     t6 = *((unsigned int *)t2);
     t7 = (t6 & t5);
-    t8 = (t0 + 5588);
+    t8 = (t0 + 5540);
     *((int *)t8) = t7;
 
-LAB9:    t9 = (t0 + 5588);
+LAB9:    t9 = (t0 + 5540);
     if (*((int *)t9) > 0)
         goto LAB10;
 
 LAB11:    xsi_set_current_line(42, ng0);
     t2 = (t0 + 2976);
-    t3 = (t0 + 5608);
+    t3 = (t0 + 5560);
     t8 = *((char **)t3);
-    t9 = (t0 + 5616);
+    t9 = (t0 + 5568);
     t10 = xsi_create_subprogram_invocation(t2, 0, *((char **)t9), ((char*)(t8)), 0, 0);
     xsi_vlog_subprogram_pushinvocation(((char*)(t8)), t10);
 
@@ -122,19 +122,19 @@ LAB15:    t11 = (t0 + 3072);
     t16 = *((char **)t15);
     t17 = (t16 + 0U);
     t18 = *((char **)t17);
-    t19 = (t0 + 5616);
+    t19 = (t0 + 5568);
     t7 = ((int  (*)(char *, char *))t18)(*((char **)t19), t12);
 
 LAB17:    if (t7 != 0)
         goto LAB18;
 
-LAB13:    t12 = (t0 + 5640);
+LAB13:    t12 = (t0 + 5592);
     t20 = *((char **)t12);
     xsi_vlog_subprogram_popinvocation(((char*)(t20)));
 
 LAB14:    t21 = (t0 + 3072);
     t22 = *((char **)t21);
-    t21 = (t0 + 5640);
+    t21 = (t0 + 5592);
     t23 = *((char **)t21);
     t24 = (t0 + 2976);
     t25 = 0;
@@ -151,7 +151,7 @@ LAB6:    xsi_set_current_line(37, ng0);
     *((char **)t1) = &&LAB8;
     goto LAB1;
 
-LAB8:    t2 = (t0 + 5584);
+LAB8:    t2 = (t0 + 5536);
     t7 = *((int *)t2);
     *((int *)t2) = (t7 - 1);
     goto LAB5;
@@ -164,7 +164,7 @@ LAB10:    xsi_set_current_line(40, ng0);
     *((char **)t1) = &&LAB12;
     goto LAB1;
 
-LAB12:    t2 = (t0 + 5588);
+LAB12:    t2 = (t0 + 5540);
     t7 = *((int *)t2);
     *((int *)t2) = (t7 - 1);
     goto LAB9;

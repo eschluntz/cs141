@@ -4,7 +4,7 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   19:38:53 11/14/2014
+// Create Date:   20:12:19 11/14/2014
 // Design Name:   control
 // Module Name:   D:/cs141/lab4/mips_stub/mips_stub/control_test.v
 // Project Name:  mips_stub
@@ -41,6 +41,8 @@ module control_test;
 	wire i_or_d;
 	wire mem_write;
 	wire ir_write;
+	wire reg_dst;
+	wire mem_to_reg;
 
 	// Instantiate the Unit Under Test (UUT)
 	control uut (
@@ -57,7 +59,9 @@ module control_test;
 		.reg_write(reg_write), 
 		.i_or_d(i_or_d), 
 		.mem_write(mem_write), 
-		.ir_write(ir_write)
+		.ir_write(ir_write), 
+		.reg_dst(reg_dst), 
+		.mem_to_reg(mem_to_reg)
 	);
 
 	initial begin
