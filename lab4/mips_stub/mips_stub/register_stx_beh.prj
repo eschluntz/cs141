@@ -1,0 +1,2 @@
+verilog isim_temp "register.v"
+verilog isim_temp "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v"

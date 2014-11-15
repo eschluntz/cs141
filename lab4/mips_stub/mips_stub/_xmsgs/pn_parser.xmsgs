@@ -8,46 +8,7 @@
 <!-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/memory.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/debugging_rig.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/gpu.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/half_byte_mux.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/main.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/common/DRAM16XN.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/common/dcmspi.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/common/synchro.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/common/timing.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/tx/convert_30to15_fifo.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/tx/dvi_encoder.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/tx/encode.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/rtl/tx/serdes_n_to_1.v\&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/cs141/lab4/mips_stub/mips_stub/test_register.v&quot; into library work</arg>
 </msg>
 
 </messages>
