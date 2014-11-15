@@ -1,30 +1,30 @@
 Command line:
-   test_mips_isim_beh.exe
+   mips_isim_beh.exe
      -simmode  gui
-     -simrunnum  0
-     -socket  49895
+     -simrunnum  1
+     -socket  49955
 
-Fri Nov 14 20:27:07 2014
+Fri Nov 14 20:55:17 2014
 
 
  Elaboration Time: 0.0312 sec
 
- Current Memory Usage: 505.401 Meg
+ Current Memory Usage: 505.397 Meg
 
- Total Signals          : 94
- Total Nets             : 638
- Total Signal Drivers   : 36
- Total Blocks           : 9
- Total Primitive Blocks : 6
- Total Processes        : 47
- Total Traceable Variables  : 39
- Total Scalar Nets and Variables : 133402
-In process mips.vCont_119_9 
+ Total Signals          : 79
+ Total Nets             : 561
+ Total Signal Drivers   : 34
+ Total Blocks           : 6
+ Total Primitive Blocks : 5
+ Total Processes        : 41
+ Total Traceable Variables  : 32
+ Total Scalar Nets and Variables : 2019
+In process mips.vCont_125_12 
  FATAL ERROR:ISim: This application has discovered an exceptional condition from which it cannot recover. Process will terminate. To search for possible resolutions to this issue, refer to the Xilinx answer database by going to http://www.xilinx.com/support/answers/index.htm and search with keywords 'ISim' and 'FATAL ERROR'. For technical support on this issue, please open a WebCase with this project attached at http://www.xilinx.com/support.
 
- Total Simulation Time: 0.343201 sec
+ Total Simulation Time: 0.374402 sec
 
- Current Memory Usage: 540.75 Meg
+ Current Memory Usage: 540.746 Meg
 
-Fri Nov 14 20:57:49 2014
+Fri Nov 14 20:56:14 2014
 

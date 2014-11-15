@@ -5,22 +5,19 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 119: Target &lt;<arg fmt="%s" index="1">alu_src_a</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 125: Target &lt;<arg fmt="%s" index="1">alu_src_a</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 120: Target &lt;<arg fmt="%s" index="1">alu_src_b</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 126: Target &lt;<arg fmt="%s" index="1">alu_src_b_inter</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 27: Port <arg fmt="%s" index="1">gpu_clk</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 85: Target &lt;<arg fmt="%s" index="1">mem_wr_ena</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 83: Target &lt;<arg fmt="%s" index="1">mem_wr_ena</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 125: Target &lt;<arg fmt="%s" index="1">alu_src_a</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 119: Target &lt;<arg fmt="%s" index="1">alu_src_a</arg>&gt; of concurrent assignment or output port connection should be a net type.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 120: Target &lt;<arg fmt="%s" index="1">alu_src_b</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 126: Target &lt;<arg fmt="%s" index="1">alu_src_b_inter</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
 </messages>

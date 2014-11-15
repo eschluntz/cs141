@@ -1,4 +1,4 @@
-Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe -prj D:/cs141/lab4/mips_stub/mips_stub/test_mips_beh.prj test_mips work.glbl 
+Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/lab4/mips_stub/mips_stub/mips_isim_beh.exe -prj D:/cs141/lab4/mips_stub/mips_stub/mips_beh.prj mips work.glbl 
 ISim O.87xd (signature 0xc3576ebc)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -8,29 +8,24 @@ Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/register.v" into libra
 Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/control.v" into library work
 Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/behavioural_alu.v" into library work
 Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" into library work
-WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 119: Target <alu_src_a> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 120: Target <alu_src_b> of concurrent assignment or output port connection should be a net type.
-Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/memory.v" into library work
-Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" into library work
+WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 125: Target <alu_src_a> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 126: Target <alu_src_b_inter> of concurrent assignment or output port connection should be a net type.
 Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/ipcore_dir/hex_font_rom.v" into library work
 Analyzing Verilog file "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 27: Port gpu_clk is not connected to this instance
-WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 83: Target <mem_wr_ena> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 119: Target <alu_src_a> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 120: Target <alu_src_b> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 85: Target <mem_wr_ena> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 125: Target <alu_src_a> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 126: Target <alu_src_b_inter> of concurrent assignment or output port connection should be a net type.
 Completed static elaboration
 Compiling module register
 Compiling module control
 Compiling module behavioural_alu
 Compiling module sign_extend
 Compiling module mips
-Compiling module memory
-Compiling module test_mips
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 2 sub-compilation(s) to finish...
-Compiled 8 Verilog Units
-Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe
-Fuse Memory Usage: 28472 KB
-Fuse CPU Usage: 483 ms
+Compiled 6 Verilog Units
+Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/mips_isim_beh.exe
+Fuse Memory Usage: 28308 KB
+Fuse CPU Usage: 436 ms

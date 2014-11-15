@@ -28,11 +28,11 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 
 	// control Outputs
 	wire [3:0] alu_control;
-	wire [1:0] alu_src_b_select;
+	wire [2:0] alu_src_b_select;
+	wire [1:0] pc_src;
 	wire alu_src_a_select;
 	wire pc_write;
 	wire branch;
-	wire pc_src;
 	wire reg_write;
 	wire i_or_d;
 	wire ir_write;
@@ -42,6 +42,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// alu Inputs
 	reg [31:0] alu_src_a;
 	reg [31:0] alu_src_b;
+	reg [31:0] alu_src_b_inter;
 
 	// alu Outputs
 	wire [31:0] alu_result;
@@ -53,6 +54,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	wire pc_en;
 	wire [31:0] sign_imm;
 	reg [31:0] A, B, data, alu_out, instruction;
+	wire [31:0] pc_jump;
 	
 	
 	register REGISTER (
@@ -105,6 +107,10 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// memory address and register file
 	
 	assign pc_en = pc_write | (branch & alu_zero);
+	assign pc_jump[31:28] = PC[31:28];
+	assign pc_jump[27:2] = instruction[25:0];
+	assign pc_jump[1:0] = 2'b00;
+	
 	assign mem_addr = i_or_d ? alu_out : PC;
 	assign mem_wr_data = B;
 	
@@ -117,12 +123,12 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	assign funct = instruction[5:0];
 	
 	assign alu_src_a = alu_src_a_select ? A : PC;
-	assign alu_src_b = alu_src_b_select == 2'b00 ? B :
-							alu_src_b_select == 2'b01 ? 32'd4 :
-							alu_src_b_select == 2'b10 ? sign_imm :
-																sign_imm << 2;
+	assign alu_src_b_inter = alu_src_b_select == 3'b000 ? B :
+									alu_src_b_select == 3'b001 ? 32'd4 :
+									alu_src_b_select == 3'b010 ? sign_imm :
+									alu_src_b_select == 3'b011 ?sign_imm << 2 :
+														instruction[10:6]; // shamt
 							
-	
 
 	//todo make op and func wires
 
@@ -130,7 +136,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	always@(posedge clk) begin
 		// program counter
 		if (pc_en) begin
-			PC <= pc_src ? alu_out : alu_result;
+			PC <= pc_src == 2'b00 ? alu_result :
+								2'b01 ? alu_out : pc_jump;
 		end
 		
 		// instruction

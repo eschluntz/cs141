@@ -32,11 +32,10 @@ module control_test;
 
 	// Outputs
 	wire [3:0] alu_control;
-	wire [1:0] alu_src_b;
+	wire [1:0] alu_src_b, pc_src;
 	wire alu_src_a;
 	wire pc_write;
 	wire branch;
-	wire pc_src;
 	wire reg_write;
 	wire i_or_d;
 	wire mem_write;
