@@ -1,20 +1,20 @@
-Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/lab4/mips_stub/mips_stub/test_register_isim_beh.exe -prj D:/cs141/lab4/mips_stub/mips_stub/test_register_beh.prj work.test_register work.glbl 
+Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/lab4/mips_stub/mips_stub/sign_extend_test_isim_beh.exe -prj D:/cs141/lab4/mips_stub/mips_stub/sign_extend_test_beh.prj sign_extend_test work.glbl 
 ISim O.87xd (signature 0xc3576ebc)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/register.v" into library work
-Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/test_register.v" into library work
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/sign_extend.v" into library work
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/sign_extend_test.v" into library work
 Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/ipcore_dir/hex_font_rom.v" into library work
 Analyzing Verilog file "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Compiling module register
-Compiling module test_register
+Compiling module sign_extend
+Compiling module sign_extend_test
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 3 Verilog Units
-Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/test_register_isim_beh.exe
-Fuse Memory Usage: 27592 KB
-Fuse CPU Usage: 389 ms
+Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/sign_extend_test_isim_beh.exe
+Fuse Memory Usage: 27484 KB
+Fuse CPU Usage: 405 ms
