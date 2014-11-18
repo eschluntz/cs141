@@ -1,7 +1,6 @@
 ISim log file
-Running: D:\cs141\lab4\mips_stub\mips_stub\mips_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb D:/cs141/lab4/mips_stub/mips_stub/mips_isim_beh.wdb 
-INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
-ISim O.87xd (signature 0xc3576ebc)
+Running: E:\cs141\lab4\mips_stub\mips_stub\mips_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb E:/cs141/lab4/mips_stub/mips_stub/mips_isim_beh.wdb 
+ISim O.61xd (signature 0x6dd86d03)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
@@ -11,6 +10,4 @@ Time resolution is 1 ps
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
-ERROR: In process mips.vCont_125_12 
- FATAL ERROR:ISim: This application has discovered an exceptional condition from which it cannot recover. Process will terminate. To search for possible resolutions to this issue, refer to the Xilinx answer database by going to http://www.xilinx.com/support/answers/index.htm and search with keywords 'ISim' and 'FATAL ERROR'. For technical support on this issue, please open a WebCase with this project attached at http://www.xilinx.com/support.
-INFO: Simulator is stopped.
+Finished circuit initialization process.

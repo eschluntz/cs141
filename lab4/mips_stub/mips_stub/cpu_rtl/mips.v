@@ -6,7 +6,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 
 	// inputs
 	input wire clk, rstb;
-	output reg mem_wr_ena;
+	output wire mem_wr_ena;
 	output wire [31:0] mem_wr_data, mem_addr;
 	input wire [31:0] mem_rd_data;             
 	output reg [31:0] PC;
@@ -40,9 +40,9 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	wire mem_to_reg;
 	
 	// alu Inputs
-	reg [31:0] alu_src_a;
-	reg [31:0] alu_src_b;
-	reg [31:0] alu_src_b_inter;
+	wire [31:0] alu_src_a;
+	wire [31:0] alu_src_b;
+	wire [31:0] alu_src_b_inter;
 
 	// alu Outputs
 	wire [31:0] alu_result;
@@ -135,25 +135,30 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// updating registers
 	always@(posedge clk) begin
 		// program counter
-		if (pc_en) begin
-			PC <= pc_src == 2'b00 ? alu_result :
-								2'b01 ? alu_out : pc_jump;
+		if (~rstb) begin
+			PC <= 0;
+		end 
+		else begin
+			if (pc_en) begin
+				PC <= pc_src == 2'b00 ? alu_result :
+									2'b01 ? alu_out : pc_jump;
+			end
+			
+			// instruction
+			if (ir_write) begin
+				instruction <= mem_rd_data;
+			end
+			
+			// data
+			data <= mem_rd_data;
+			
+			// reg output
+			A <= reg_rd_data_1;
+			B <= reg_rd_data_2;
+			
+			// alu out
+			alu_out <= alu_result;
 		end
-		
-		// instruction
-		if (ir_write) begin
-			instruction <= mem_rd_data;
-		end
-		
-		// data
-		data <= mem_rd_data;
-		
-		// reg output
-		A <= reg_rd_data_1;
-		B <= reg_rd_data_2;
-		
-		// alu out
-		alu_out <= alu_result;
 	end
 
 

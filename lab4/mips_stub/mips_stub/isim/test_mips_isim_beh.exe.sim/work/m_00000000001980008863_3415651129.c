@@ -10,7 +10,7 @@
 /*  \___\/\___\                                                    */
 /***********************************************************************/
 
-/* This file is designed for use with ISim build 0xc3576ebc */
+/* This file is designed for use with ISim build 0x6dd86d03 */
 
 #define XSI_HIDE_SYMBOL_SPEC true
 #include "xsi.h"
@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "D:/cs141/lab4/mips_stub/mips_stub/sign_extend.v";
+static const char *ng0 = "//vboxsrv/CS141Shared/cs141/lab4/mips_stub/mips_stub/sign_extend.v";
 static unsigned int ng1[] = {65535U, 0U};
 static unsigned int ng2[] = {0U, 0U};
 
@@ -46,7 +46,7 @@ static void Cont_11_0(char *t0)
     unsigned int t15;
     char *t16;
 
-LAB0:    t1 = (t0 + 2368U);
+LAB0:    t1 = (t0 + 1352U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
@@ -54,12 +54,12 @@ LAB0:    t1 = (t0 + 2368U);
 LAB3:    goto *t2;
 
 LAB2:    xsi_set_current_line(11, ng0);
-    t2 = (t0 + 1048U);
+    t2 = (t0 + 600U);
     t3 = *((char **)t2);
-    t2 = (t0 + 3032);
-    t4 = (t2 + 56U);
+    t2 = (t0 + 1744);
+    t4 = (t2 + 32U);
     t5 = *((char **)t4);
-    t6 = (t5 + 56U);
+    t6 = (t5 + 40U);
     t7 = *((char **)t6);
     memset(t7, 0, 8);
     t8 = 65535U;
@@ -75,7 +75,7 @@ LAB2:    xsi_set_current_line(11, ng0);
     t15 = *((unsigned int *)t13);
     *((unsigned int *)t13) = (t15 | t9);
     xsi_driver_vfirst_trans(t2, 0, 15);
-    t16 = (t0 + 2936);
+    t16 = (t0 + 1692);
     *((int *)t16) = 1;
 
 LAB1:    return;
@@ -128,7 +128,7 @@ static void Cont_12_1(char *t0)
     unsigned int t43;
     char *t44;
 
-LAB0:    t1 = (t0 + 2616U);
+LAB0:    t1 = (t0 + 1496U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
@@ -136,7 +136,7 @@ LAB0:    t1 = (t0 + 2616U);
 LAB3:    goto *t2;
 
 LAB2:    xsi_set_current_line(12, ng0);
-    t2 = (t0 + 1048U);
+    t2 = (t0 + 600U);
     t5 = *((char **)t2);
     memset(t6, 0, 8);
     t2 = (t6 + 4);
@@ -184,10 +184,10 @@ LAB13:    if (*((unsigned int *)t4) > 0)
 
 LAB15:    memcpy(t3, t30, 8);
 
-LAB16:    t31 = (t0 + 3096);
-    t32 = (t31 + 56U);
+LAB16:    t31 = (t0 + 1780);
+    t32 = (t31 + 32U);
     t33 = *((char **)t32);
-    t34 = (t33 + 56U);
+    t34 = (t33 + 40U);
     t35 = *((char **)t34);
     memset(t35, 0, 8);
     t36 = 65535U;
@@ -203,7 +203,7 @@ LAB16:    t31 = (t0 + 3096);
     t43 = *((unsigned int *)t41);
     *((unsigned int *)t41) = (t43 | t37);
     xsi_driver_vfirst_trans(t31, 16, 31);
-    t44 = (t0 + 2952);
+    t44 = (t0 + 1700);
     *((int *)t44) = 1;
 
 LAB1:    return;

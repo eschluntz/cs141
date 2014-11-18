@@ -17,6 +17,19 @@ module control(
 	output wire reg_dst, mem_to_reg
 	);
 	
+	assign alu_control = 0;
+	assign alu_src_b = 0;
+	assign pc_src = 0;
+	assign alu_src_a = 0;
+	
+	assign pc_write = 1;
+	assign branch = 0;
+	assign reg_write = 0;
+	assign i_or_d = 0;
+	assign mem_write = 1;
+	assign ir_write = 1;
+	assign reg_dst = 0;
+	assign mem_to_reg = 0;
 
 endmodule
 
