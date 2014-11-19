@@ -114,7 +114,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	assign mem_wr_data = B;
 	
 	assign reg_wr_addr = reg_dst ? instruction[15:11] : instruction[20:16];
-	assign reg_wr_data = mem_to_reg ? data : alu_out;
+	assign reg_wr_data = mem_to_reg ? mem_rd_data : alu_out; // removed data reg, because our memory is already buffered
 	assign reg_rd_addr_1 = instruction[25:21];
 	assign reg_rd_addr_2 = instruction[20:16];
 	

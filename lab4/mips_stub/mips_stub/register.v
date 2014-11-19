@@ -18,7 +18,7 @@ module register(clk, rstb, wr_en, rd_addr_1, rd_addr_2, wr_addr, wr_data, rd_dat
 	assign rd_data_1 = all_data[((rd_addr_1+1) << `ADDR_SIZE)-1 -: `DATA_SIZE];
 	assign rd_data_2 = all_data[((rd_addr_2+1) << `ADDR_SIZE)-1 -: `DATA_SIZE];
 	
-	always @(posedge clk) begin
+	always @(negedge clk) begin
 		if (~rstb) begin
 			all_data <= `FULL_SIZE'd0;
 		end else begin

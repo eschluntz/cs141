@@ -1,4 +1,0 @@
-verilog work "sign_extend.v"
-verilog work "sign_extend_test.v"
-verilog work "ipcore_dir/hex_font_rom.v"
-verilog work "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v"

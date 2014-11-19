@@ -1,20 +1,31 @@
-Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/lab4/mips_stub/mips_stub/test_register_isim_beh.exe -prj D:/cs141/lab4/mips_stub/mips_stub/test_register_beh.prj work.test_register work.glbl 
+Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe -prj D:/cs141/lab4/mips_stub/mips_stub/test_mips_beh.prj work.test_mips work.glbl 
 ISim O.87xd (signature 0xc3576ebc)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/sign_extend.v" into library work
 Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/register.v" into library work
-Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/test_register.v" into library work
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/control.v" into library work
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/behavioural_alu.v" into library work
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" into library work
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/memory.v" into library work
+Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" into library work
 Analyzing Verilog file "D:/cs141/lab4/mips_stub/mips_stub/ipcore_dir/hex_font_rom.v" into library work
 Analyzing Verilog file "E:/xilinx_install/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:1016 - "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 27: Port gpu_clk is not connected to this instance
 Completed static elaboration
 Compiling module register
-Compiling module test_register
+Compiling module control
+Compiling module behavioural_alu
+Compiling module sign_extend
+Compiling module mips
+Compiling module memory
+Compiling module test_mips
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 3 Verilog Units
-Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/test_register_isim_beh.exe
-Fuse Memory Usage: 27608 KB
-Fuse CPU Usage: 389 ms
+Compiled 8 Verilog Units
+Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe
+Fuse Memory Usage: 28608 KB
+Fuse CPU Usage: 482 ms
