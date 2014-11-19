@@ -42,7 +42,6 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// alu Inputs
 	wire [31:0] alu_src_a;
 	wire [31:0] alu_src_b;
-	wire [31:0] alu_src_b_inter;
 
 	// alu Outputs
 	wire [31:0] alu_result;
@@ -123,7 +122,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	assign funct = instruction[5:0];
 	
 	assign alu_src_a = alu_src_a_select ? A : PC;
-	assign alu_src_b_inter = alu_src_b_select == 3'b000 ? B :
+	assign alu_src_b = alu_src_b_select == 3'b000 ? B :
 									alu_src_b_select == 3'b001 ? 32'd4 :
 									alu_src_b_select == 3'b010 ? sign_imm :
 									alu_src_b_select == 3'b011 ?sign_imm << 2 :
@@ -137,10 +136,15 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		// program counter
 		if (~rstb) begin
 			PC <= 0;
+			A <= 0;
+			B <= 0;
+			data <= 0;
+			alu_out <= 0;
+			instruction <= 0;
 		end 
 		else begin
 			if (pc_en) begin
-				PC <= pc_src == 2'b00 ? alu_result :
+				PC <= (pc_src == 2'b00) ? alu_result :
 									2'b01 ? alu_out : pc_jump;
 			end
 			

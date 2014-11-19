@@ -15,15 +15,15 @@ module register(clk, rstb, wr_en, rd_addr_1, rd_addr_2, wr_addr, wr_data, rd_dat
 	// actual data
 	reg [`FULL_SIZE-1:0] all_data;
 	
-	assign rd_data_1 = all_data[((rd_addr_1+1) << `ADDR_SIZE)-1 -: `DATA_SIZE-1];
-	assign rd_data_2 = all_data[((rd_addr_2+1) << `ADDR_SIZE)-1 -: `DATA_SIZE-1];
+	assign rd_data_1 = all_data[((rd_addr_1+1) << `ADDR_SIZE)-1 -: `DATA_SIZE];
+	assign rd_data_2 = all_data[((rd_addr_2+1) << `ADDR_SIZE)-1 -: `DATA_SIZE];
 	
 	always @(posedge clk) begin
 		if (~rstb) begin
 			all_data <= `FULL_SIZE'd0;
 		end else begin
 			if (wr_en) begin
-				all_data[((wr_addr+1) << `ADDR_SIZE)-1 -: `DATA_SIZE-1] <= wr_data;
+				all_data[((wr_addr+1) << `ADDR_SIZE)-1 -: `DATA_SIZE] <= wr_data;
 			end
 		end
 	end

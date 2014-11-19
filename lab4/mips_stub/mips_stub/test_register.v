@@ -65,17 +65,24 @@ module test_register;
 		rstb = 1;
 		#20;
 		
-		rd_addr_1 = 5'b00010;
+		rd_addr_1 = 5'd8;
+		#40;
+		rd_addr_1 = 5'd7;
 		#40;
 		wr_en = 1;
-		wr_addr = 5'b00010;
-		wr_data = 32'd1024;
-		# 40;
-		wr_en = 0;
-		rd_addr_1 = 5'b00011;
-      #40;
-		rd_addr_2 = 5'b00010;
+		wr_addr = 5'd8;
+		wr_data = 32'hFFFFFFFF;
 		#40;
+		wr_addr = 5'd13;
+		wr_data = 32'hAFAFAFAF;
+		#40;
+		wr_en = 0;
+		rd_addr_1 = 5'd8;
+      #40;
+		rd_addr_2 = 5'd7;
+		#40;
+		rd_addr_1 = 5'd9;
+		rd_addr_2 = 5'd13;
 		// Add stimulus here
 
 	end

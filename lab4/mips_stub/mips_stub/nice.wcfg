@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_mips" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="28" />
+   <wvobject fp_name="/test_mips/mem_rd_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rd_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/mem_wr_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/mem_addr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/mem_wr_ena" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_wr_ena</obj_property>
+      <obj_property name="ObjectShortName">mem_wr_ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/rstb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rstb</obj_property>
+      <obj_property name="ObjectShortName">rstb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/rstb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rstb</obj_property>
+      <obj_property name="ObjectShortName">rstb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/op" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">op[5:0]</obj_property>
+      <obj_property name="ObjectShortName">op[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/funct" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">funct[5:0]</obj_property>
+      <obj_property name="ObjectShortName">funct[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/alu_control" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_control[3:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_control[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/alu_src_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_src_b[2:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src_b[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/pc_src" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_src[1:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_src[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/alu_src_a" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_src_a</obj_property>
+      <obj_property name="ObjectShortName">alu_src_a</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/pc_write" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_write</obj_property>
+      <obj_property name="ObjectShortName">pc_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/branch" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">branch</obj_property>
+      <obj_property name="ObjectShortName">branch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/reg_write" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_write</obj_property>
+      <obj_property name="ObjectShortName">reg_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/i_or_d" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">i_or_d</obj_property>
+      <obj_property name="ObjectShortName">i_or_d</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/mem_write" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_write</obj_property>
+      <obj_property name="ObjectShortName">mem_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/ir_write" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ir_write</obj_property>
+      <obj_property name="ObjectShortName">ir_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/reg_dst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_dst</obj_property>
+      <obj_property name="ObjectShortName">reg_dst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/mem_to_reg" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_to_reg</obj_property>
+      <obj_property name="ObjectShortName">mem_to_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/CONTROL/STATE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">STATE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">STATE[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/pc_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_en</obj_property>
+      <obj_property name="ObjectShortName">pc_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/alu_result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/alu_src_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_src_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src_a[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_mips/uut/alu_src_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_src_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src_b[31:0]</obj_property>
+   </wvobject>
+</wave_config>
