@@ -58,16 +58,19 @@ module control(
 		(STATE == 0) ? 5 :
 		(STATE == 2) ? 5 :
 		(STATE == 3) ? 5 :
+		(STATE == 11)? 5 :
 							0;
 	assign alu_src_b = 
 		(STATE == 0) ? 1 :
 		(STATE == 2) ? 3 :
 		(STATE == 3) ? 2 :
+		(STATE == 11)? 2 :
 							0;
 	assign pc_src = 
 							0;
 	assign alu_src_a = 
 		(STATE == 3) ? 1 :
+		(STATE == 11)? 1 :
 							0;
 	assign pc_write = 
 		(STATE == 0) ? 1 :
@@ -76,6 +79,7 @@ module control(
 							0;
 	assign reg_write = 
 		(STATE == 5) ? 1 :
+		(STATE == 12)? 1 :
 							0;
 	assign i_or_d = 
 		(STATE == 4) ? 1 :
@@ -88,6 +92,7 @@ module control(
 		(STATE == 1) ? 1 :
 							0;
 	assign reg_dst = 
+		(STATE == 12)? 0 :
 							0;
 	assign mem_to_reg = 
 		(STATE == 5) ? 1 :
@@ -110,6 +115,8 @@ module control(
 			end else if (STATE == 2) begin // decode
 				if (op == `lw_op | op == `sw_op ) begin
 					STATE <= 3;
+				end else if (op == `addi_op) begin
+					STATE <= 10;
 				end else begin
 					STATE <= 0;
 				end
@@ -132,6 +139,12 @@ module control(
 			end else if (STATE == 6) begin // mem write
 				STATE <= 0;
 				
+			end else if (STATE == 10) begin
+				STATE <= 11;
+			end else if (STATE == 11) begin
+				STATE <= 12;
+			end else if (STATE == 12) begin
+				STATE <= 0;
 			end
 		end
 	end

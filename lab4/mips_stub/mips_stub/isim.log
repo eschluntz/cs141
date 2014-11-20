@@ -11,8 +11,5 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# restart
-# run all
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
+# run 1.00us
 Stopped at time : 1045 ns : File "//vboxsrv/CS141Shared/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 43
