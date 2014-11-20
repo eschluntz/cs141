@@ -1,6 +1,6 @@
-        lw        $t0,    24($zero)
-        addi      $t1,    $t0, 4
-        sw        $t0,    28($zero)
-        sw        $t0,    32($zero)
+        addi      $t1,    $zero, 0
+        beq       $t1,    $zero, loop
+        addi      $t1, loop
+loop:   addi      $t1,    $t1,    $4        # $s0 = $s1 + $s2
         sw        $t1,    36($zero)
         sw        $t1,    40($zero)
