@@ -85,7 +85,7 @@ module control(
 		(STATE == 5) ? 1 :
 							0;
 	assign ir_write = 
-		(STATE == 0) ? 1 :
+		(STATE == 10) ? 1 :
 							0;
 	assign reg_dst = 
 							0;
@@ -103,6 +103,8 @@ module control(
 			STATE <= 0;
 		end else begin
 			if (STATE == 0) begin // reset
+				STATE <= 10;
+			end else if (STATE == 10) begin
 				STATE <= 1;
 				
 			end else if (STATE == 1) begin // decode
