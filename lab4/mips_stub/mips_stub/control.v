@@ -56,18 +56,18 @@ module control(
 	*/
 	assign alu_control = 
 		(STATE == 0) ? 5 :
-		(STATE == 1) ? 5 :
 		(STATE == 2) ? 5 :
+		(STATE == 3) ? 5 :
 							0;
 	assign alu_src_b = 
 		(STATE == 0) ? 1 :
-		(STATE == 1) ? 3 :
-		(STATE == 2) ? 2 :
+		(STATE == 2) ? 3 :
+		(STATE == 3) ? 2 :
 							0;
 	assign pc_src = 
 							0;
 	assign alu_src_a = 
-		(STATE == 2) ? 1 :
+		(STATE == 3) ? 1 :
 							0;
 	assign pc_write = 
 		(STATE == 0) ? 1 :
@@ -75,22 +75,22 @@ module control(
 	assign branch = 
 							0;
 	assign reg_write = 
-		(STATE == 4) ? 1 :
+		(STATE == 5) ? 1 :
 							0;
 	assign i_or_d = 
-		(STATE == 3) ? 1 :
-		(STATE == 5) ? 1 :
+		(STATE == 4) ? 1 :
+		(STATE == 6) ? 1 :
 							0;
 	assign mem_write = 
-		(STATE == 5) ? 1 :
+		(STATE == 6) ? 1 :
 							0;
 	assign ir_write = 
-		(STATE == 10) ? 1 :
+		(STATE == 1) ? 1 :
 							0;
 	assign reg_dst = 
 							0;
 	assign mem_to_reg = 
-		(STATE == 4) ? 1 :
+		(STATE == 5) ? 1 :
 							0;
 		
 	
@@ -103,33 +103,33 @@ module control(
 			STATE <= 0;
 		end else begin
 			if (STATE == 0) begin // reset
-				STATE <= 10;
-			end else if (STATE == 10) begin
 				STATE <= 1;
+			end else if (STATE == 1) begin
+				STATE <= 2;
 				
-			end else if (STATE == 1) begin // decode
+			end else if (STATE == 2) begin // decode
 				if (op == `lw_op | op == `sw_op ) begin
-					STATE <= 2;
-				end else begin
-					STATE <= 0;
-				end
-				
-			end else if (STATE == 2) begin // mem addr
-				if (op == `lw_op) begin
 					STATE <= 3;
-				end else if (op == `sw_op) begin
-					STATE <= 5;
 				end else begin
 					STATE <= 0;
 				end
 				
-			end else if (STATE == 3) begin // Mem Read
-				STATE <= 4;
+			end else if (STATE == 3) begin // mem addr
+				if (op == `lw_op) begin
+					STATE <= 4;
+				end else if (op == `sw_op) begin
+					STATE <= 6;
+				end else begin
+					STATE <= 0;
+				end
+				
+			end else if (STATE == 4) begin // Mem Read
+				STATE <= 5;
 			
-			end else if (STATE == 4) begin // mem writeback
+			end else if (STATE == 5) begin // mem writeback
 				STATE <= 0;
 				
-			end else if (STATE == 5) begin // mem write
+			end else if (STATE == 6) begin // mem write
 				STATE <= 0;
 				
 			end

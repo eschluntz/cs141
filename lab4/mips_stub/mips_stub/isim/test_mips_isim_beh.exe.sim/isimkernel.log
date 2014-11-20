@@ -2,9 +2,9 @@ Command line:
    test_mips_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  1792
+     -socket  1796
 
-Wed Nov 19 22:31:23 2014
+Wed Nov 19 22:34:00 2014
 
 
  Elaboration Time: 0.040057 sec
