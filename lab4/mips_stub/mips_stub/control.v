@@ -16,7 +16,7 @@
 `define xori_op 	6'b001110
 `define slti_op 	6'b001010
 `define bne_op 	6'b000101
-`define jal 		6'b000011
+`define jal_op 	6'b000011
 `define jr	 		6'b001000
 
 module control(
@@ -31,7 +31,7 @@ module control(
 	output wire pc_write, branch, branch_ne, reg_write,
 	output wire i_or_d, mem_write, ir_write,
 	output wire [1:0] reg_dst, 
-	output wire mem_to_reg
+	output wire [1:0] mem_to_reg
 	);
 	
 	// Internal state
@@ -162,7 +162,7 @@ module control(
 							0;
 	assign mem_to_reg = 
 		(STATE == 5) ? 1 :
-		(STATE == 28)? 0 :
+		(STATE == 28)? 2 :
 							0;
 		
 	
@@ -188,7 +188,7 @@ module control(
 					STATE <= 10;
 				end else if (op == `beq_op) begin
 					STATE <= 9;
-				end else if (op == `r_op & funct == 8) begin
+				end else if ((op == `r_op) & (funct == 8)) begin
 					STATE <= 30;
 				end else if (op == `r_op) begin
 					STATE <= 7;
@@ -204,6 +204,8 @@ module control(
 					STATE <= 24;
 				end else if (op == `bne_op) begin
 					STATE <= 27;
+				end else if (op == `jal_op) begin
+					STATE <= 28;
 				end else begin
 					STATE <= 0;
 				end

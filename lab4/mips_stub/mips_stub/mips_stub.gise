@@ -29,6 +29,7 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mips_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_mips_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="test_mips_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_mips_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
   </files>
 
@@ -37,7 +38,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1416542735" xil_pn:in_ck="-5319815902491894804" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1416542734">
+    <transform xil_pn:end_ts="1416546378" xil_pn:in_ck="-5319815902491894804" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1416546378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="alu_op_codes.v"/>
@@ -67,7 +68,7 @@
       <outfile xil_pn:name="ipcore_dir/fpga_ram.ngc"/>
       <outfile xil_pn:name="ipcore_dir/fpga_ram.v"/>
     </transform>
-    <transform xil_pn:end_ts="1416542735" xil_pn:in_ck="-5319815902491894804" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1416542735">
+    <transform xil_pn:end_ts="1416546378" xil_pn:in_ck="-5319815902491894804" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1416546378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="alu_op_codes.v"/>
@@ -83,7 +84,7 @@
       <outfile xil_pn:name="sign_extend_test.v"/>
       <outfile xil_pn:name="test_register.v"/>
     </transform>
-    <transform xil_pn:end_ts="1416542739" xil_pn:in_ck="4663688158997610423" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-45853256218787363" xil_pn:start_ts="1416542735">
+    <transform xil_pn:end_ts="1416546384" xil_pn:in_ck="4663688158997610423" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-45853256218787363" xil_pn:start_ts="1416546378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -95,7 +96,7 @@
       <outfile xil_pn:name="test_mips_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1416543384" xil_pn:in_ck="-6994914749767532889" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6621808415018213568" xil_pn:start_ts="1416543384">
+    <transform xil_pn:end_ts="1416546384" xil_pn:in_ck="-6994914749767532889" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6621808415018213568" xil_pn:start_ts="1416546384">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="isim.cmd"/>

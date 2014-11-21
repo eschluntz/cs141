@@ -1,4 +1,4 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "E:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe" -prj "E:/cs141/lab4/mips_stub/mips_stub/test_mips_beh.prj" "test_mips" "work.glbl" 
+Running: C:\Xilinx\13.2\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o E:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe -prj E:/cs141/lab4/mips_stub/mips_stub/test_mips_beh.prj test_mips work.glbl 
 ISim O.61xd (signature 0x6dd86d03)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
@@ -8,7 +8,7 @@ Analyzing Verilog file \"E:/cs141/lab4/mips_stub/mips_stub/register.v\" into lib
 Analyzing Verilog file \"E:/cs141/lab4/mips_stub/mips_stub/control.v\" into library work
 Analyzing Verilog file \"E:/cs141/lab4/mips_stub/mips_stub/behavioural_alu.v\" into library work
 Analyzing Verilog file \"E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v\" into library work
-WARNING:HDLCompiler:568 - "E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 141: Constant value is truncated to fit in <32> bits.
+WARNING:HDLCompiler:568 - "E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 143: Constant value is truncated to fit in <32> bits.
 Analyzing Verilog file \"E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/memory.v\" into library work
 Analyzing Verilog file \"E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v\" into library work
 Analyzing Verilog file \"E:/cs141/lab4/mips_stub/mips_stub/ipcore_dir/hex_font_rom.v\" into library work
@@ -17,7 +17,7 @@ Starting static elaboration
 WARNING:HDLCompiler:1016 - "E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 27: Port gpu_clk is not connected to this instance
 Completed static elaboration
 Fuse Memory Usage: 61012 KB
-Fuse CPU Usage: 180 ms
+Fuse CPU Usage: 200 ms
 Compiling module register
 Compiling module control
 Compiling module behavioural_alu
@@ -30,4 +30,4 @@ Time Resolution for simulation is 1ps.
 Compiled 8 Verilog Units
 Built simulation executable E:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe
 Fuse Memory Usage: 64472 KB
-Fuse CPU Usage: 250 ms
+Fuse CPU Usage: 320 ms
