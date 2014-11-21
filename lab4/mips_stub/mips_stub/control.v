@@ -33,6 +33,7 @@ module control(
 	
 	// Internal state
 	reg [3:0] STATE;
+	wire [3:0] funct_to_alu;
 	
 	/* all zeros
 					i_or_d <= 0;
@@ -49,6 +50,16 @@ module control(
 					mem_to_reg <= 0;
 					*/
 					
+	/* 
+		conversion from funct to alu codes
+	*/
+	assign funct_to_alu =
+		(funct == ) ?  :
+		(funct == ) ?  :
+		(funct == ) ?  :
+		(funct == ) ?  :
+		(funct == ) ?  :
+							;
 	/* 
 		Combinational logic to define each output based on state
 		Define all states for which the wire is non zeo
