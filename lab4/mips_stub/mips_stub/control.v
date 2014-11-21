@@ -2,6 +2,8 @@
 
 `default_nettype none
 
+`include "alu_op_codes.v"
+
 // state definitions
 `define sw_op		6'b101011
 `define lw_op		6'b100011
@@ -54,12 +56,20 @@ module control(
 		conversion from funct to alu codes
 	*/
 	assign funct_to_alu =
-		(funct == ) ?  :
-		(funct == ) ?  :
-		(funct == ) ?  :
-		(funct == ) ?  :
-		(funct == ) ?  :
-							;
+		(funct == 0) ? OP_SLL : // sll
+		(funct == 2) ? OP_SRL : //srl
+		(funct == 3) ? OP_SRA : // sra
+		(funct == 8) ? 0 : // jr       /// HANDLE THIS
+		(funct == 32) ? OP_ADD : // add
+		(funct == 34) ? OP_SUB : // sub
+		(funct == 36) ? OP_AND : // adn
+		(funct == 37) ? OP_OR : // or
+		(funct == 38) ? OP_XOR : // xor
+		(funct == 39) ? OP_NOR : // nor
+		(funct == 42) ? OP_SLT : // slt
+							0; // unknown
+							
+							
 	/* 
 		Combinational logic to define each output based on state
 		Define all states for which the wire is non zeo
@@ -70,23 +80,28 @@ module control(
 		(STATE == 2) ? 5 :
 		(STATE == 3) ? 5 :
 		(STATE == 11)? 5 :
+		(STATE == 9) ? 6 :
 							0;
 	assign alu_src_b = 
 		(STATE == 0) ? 1 :
 		(STATE == 2) ? 3 :
 		(STATE == 3) ? 2 :
 		(STATE == 11)? 2 :
+		(STATE == 9) ? 2 :
 							0;
 	assign pc_src = 
+		(STATE == 9) ? 1 :
 							0;
 	assign alu_src_a = 
 		(STATE == 3) ? 1 :
 		(STATE == 11)? 1 :
+		(STATE == 9) ? 1 :
 							0;
 	assign pc_write = 
 		(STATE == 0) ? 1 :
 							0;
 	assign branch = 
+		(STATE == 9) ? 1 :
 							0;
 	assign reg_write = 
 		(STATE == 5) ? 1 :
@@ -118,20 +133,24 @@ module control(
 		if (~rstb) begin
 			STATE <= 0;
 		end else begin
+			// FETCH
 			if (STATE == 0) begin // reset
 				STATE <= 1;
+			// extra clock cycle for memory
 			end else if (STATE == 1) begin
 				STATE <= 2;
-				
+			// decode
 			end else if (STATE == 2) begin // decode
 				if (op == `lw_op | op == `sw_op ) begin
 					STATE <= 3;
 				end else if (op == `addi_op) begin
 					STATE <= 10;
+				end else if (op == `beq_op) begin
+					STATE <= 9;
 				end else begin
 					STATE <= 0;
 				end
-				
+			// lw/sw MemAdr
 			end else if (STATE == 3) begin // mem addr
 				if (op == `lw_op) begin
 					STATE <= 4;
@@ -140,20 +159,25 @@ module control(
 				end else begin
 					STATE <= 0;
 				end
-				
+			//	lw MemRd
 			end else if (STATE == 4) begin // Mem Read
 				STATE <= 5;
-			
+			// lw MemWriteback
 			end else if (STATE == 5) begin // mem writeback
 				STATE <= 0;
-				
+			//	sw MemWrite
 			end else if (STATE == 6) begin // mem write
 				STATE <= 0;
-				
+			// beq Branch
+			end else if (STATE == 9) begin
+				STATE <= 0;
+			// addi Execute1
 			end else if (STATE == 10) begin
 				STATE <= 11;
+			// addi Execute2
 			end else if (STATE == 11) begin
 				STATE <= 12;
+			// addi Writeback
 			end else if (STATE == 12) begin
 				STATE <= 0;
 			end
