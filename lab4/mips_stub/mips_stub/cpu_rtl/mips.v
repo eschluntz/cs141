@@ -36,7 +36,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	wire reg_write;
 	wire i_or_d;
 	wire ir_write;
-	wire reg_dst;
+	wire [1:0] reg_dst;
 	wire mem_to_reg;
 	
 	// alu Inputs
@@ -114,7 +114,9 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	assign mem_addr = i_or_d ? alu_out : PC;
 	assign mem_wr_data = B;
 	
-	assign reg_wr_addr = reg_dst ? instruction[15:11] : instruction[20:16];
+	assign reg_wr_addr = (reg_dst == 0) ? instruction[15:11] :
+								(reg_dst == 1) ? instruction[20:16] :
+								31;
 	assign reg_wr_data = mem_to_reg ? mem_rd_data : alu_out; // removed data reg, because our memory is already buffered
 	assign reg_rd_addr_1 = instruction[25:21];
 	assign reg_rd_addr_2 = instruction[20:16];

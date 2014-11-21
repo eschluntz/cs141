@@ -30,7 +30,8 @@ module control(
 	
 	output wire pc_write, branch, branch_ne, reg_write,
 	output wire i_or_d, mem_write, ir_write,
-	output wire reg_dst, mem_to_reg
+	output wire [1:0] reg_dst, 
+	output wire mem_to_reg
 	);
 	
 	// Internal state
@@ -104,6 +105,7 @@ module control(
 		(STATE == 9) ? 1 :
 		(STATE == 27)? 1 :
 		(STATE == 13)? 2 :
+		(STATE == 29)? 2 :
 							0;
 	assign alu_src_a = 
 		(STATE == 3) ? 1 :
@@ -119,6 +121,7 @@ module control(
 	assign pc_write = 
 		(STATE == 0) ? 1 :
 		(STATE == 13)? 1 :
+		(STATE == 29)? 1 :
 							0;
 	assign branch = 
 		(STATE == 9) ? 1 :
@@ -133,6 +136,7 @@ module control(
 		(STATE == 20)? 1 :
 		(STATE == 23)? 1 :
 		(STATE == 26)? 1 :
+		(STATE == 28)? 1 :
 		(STATE == 8) ? 1 :
 							0;
 	assign i_or_d = 
@@ -151,10 +155,12 @@ module control(
 		(STATE == 20)? 0 :
 		(STATE == 23)? 0 :
 		(STATE == 26)? 0 :
-		(STATE == 8)? 1 :
+		(STATE == 28)? 2 :
+		(STATE == 8) ? 1 :
 							0;
 	assign mem_to_reg = 
 		(STATE == 5) ? 1 :
+		(STATE == 28)? 0 :
 							0;
 		
 	
@@ -273,7 +279,12 @@ module control(
 			// bne Branch
 			end else if (STATE == 27) begin
 				STATE <= 0;
-
+			// jal write register
+			end else if (STATE == 28) begin
+				STATE <= 29;
+			// jal update
+			end else if (STATE == 29) begin
+				STATE <= 0;
 			end
 		end
 	end
