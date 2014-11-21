@@ -1,4 +1,4 @@
-Running: E:\xilinx_install\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe -prj D:/cs141/lab4/mips_stub/mips_stub/test_mips_beh.prj test_mips work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe" -prj "D:/cs141/lab4/mips_stub/mips_stub/test_mips_beh.prj" "test_mips" "work.glbl" 
 ISim O.87xd (signature 0xc3576ebc)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -24,8 +24,8 @@ Compiling module memory
 Compiling module test_mips
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 2 sub-compilation(s) to finish...
+Waiting for 3 sub-compilation(s) to finish...
 Compiled 8 Verilog Units
 Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe
-Fuse Memory Usage: 29140 KB
-Fuse CPU Usage: 483 ms
+Fuse Memory Usage: 29260 KB
+Fuse CPU Usage: 467 ms

@@ -56,10 +56,10 @@ module control(
 		conversion from funct to alu codes
 	*/
 	assign funct_to_alu =
-		(funct == 0) ? `OP_SLL : // sll
+		(funct == 0) ? `OP_SLL : // sll	// TODO shampt
 		(funct == 2) ? `OP_SRL : //srl
 		(funct == 3) ? `OP_SRA : // sra
-		(funct == 8) ? 0 : // jr       /// HANDLE THIS
+		(funct == 8) ? 0 : // jr       // TODO HANDLE THIS
 		(funct == 32) ? `OP_ADD : // add
 		(funct == 34) ? `OP_SUB : // sub
 		(funct == 36) ? `OP_AND : // adn
