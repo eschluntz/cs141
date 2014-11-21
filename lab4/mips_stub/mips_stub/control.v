@@ -56,17 +56,17 @@ module control(
 		conversion from funct to alu codes
 	*/
 	assign funct_to_alu =
-		(funct == 0) ? OP_SLL : // sll
-		(funct == 2) ? OP_SRL : //srl
-		(funct == 3) ? OP_SRA : // sra
+		(funct == 0) ? `OP_SLL : // sll
+		(funct == 2) ? `OP_SRL : //srl
+		(funct == 3) ? `OP_SRA : // sra
 		(funct == 8) ? 0 : // jr       /// HANDLE THIS
-		(funct == 32) ? OP_ADD : // add
-		(funct == 34) ? OP_SUB : // sub
-		(funct == 36) ? OP_AND : // adn
-		(funct == 37) ? OP_OR : // or
-		(funct == 38) ? OP_XOR : // xor
-		(funct == 39) ? OP_NOR : // nor
-		(funct == 42) ? OP_SLT : // slt
+		(funct == 32) ? `OP_ADD : // add
+		(funct == 34) ? `OP_SUB : // sub
+		(funct == 36) ? `OP_AND : // adn
+		(funct == 37) ? `OP_OR : // or
+		(funct == 38) ? `OP_XOR : // xor
+		(funct == 39) ? `OP_NOR : // nor
+		(funct == 42) ? `OP_SLT : // slt
 							0; // unknown
 							
 							
@@ -81,6 +81,7 @@ module control(
 		(STATE == 3) ? 5 :
 		(STATE == 11)? 5 :
 		(STATE == 9) ? 6 :
+		(STATE == 7) ? funct_to_alu :
 							0;
 	assign alu_src_b = 
 		(STATE == 0) ? 1 :
@@ -96,6 +97,7 @@ module control(
 		(STATE == 3) ? 1 :
 		(STATE == 11)? 1 :
 		(STATE == 9) ? 1 :
+		(STATE == 7) ? 1 :
 							0;
 	assign pc_write = 
 		(STATE == 0) ? 1 :
@@ -106,6 +108,7 @@ module control(
 	assign reg_write = 
 		(STATE == 5) ? 1 :
 		(STATE == 12)? 1 :
+		(STATE == 8) ? 1 :
 							0;
 	assign i_or_d = 
 		(STATE == 4) ? 1 :
@@ -119,6 +122,7 @@ module control(
 							0;
 	assign reg_dst = 
 		(STATE == 12)? 0 :
+		(STATE == 8)? 1 :
 							0;
 	assign mem_to_reg = 
 		(STATE == 5) ? 1 :
@@ -147,6 +151,8 @@ module control(
 					STATE <= 10;
 				end else if (op == `beq_op) begin
 					STATE <= 9;
+				end else if (op == `r_op) begin
+					STATE <= 7;
 				end else begin
 					STATE <= 0;
 				end
@@ -167,6 +173,10 @@ module control(
 				STATE <= 0;
 			//	sw MemWrite
 			end else if (STATE == 6) begin // mem write
+				STATE <= 0;
+			end else if (STATE == 7) begin // R type execute
+				STATE <= 8;
+			end else if (STATE == 8) begin // alu write back
 				STATE <= 0;
 			// beq Branch
 			end else if (STATE == 9) begin
