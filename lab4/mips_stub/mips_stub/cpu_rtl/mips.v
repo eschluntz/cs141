@@ -32,7 +32,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	wire [1:0] pc_src;
 	wire alu_src_a_select;
 	wire pc_write;
-	wire branch;
+	wire branch, branch_ne;
 	wire reg_write;
 	wire i_or_d;
 	wire ir_write;
@@ -78,6 +78,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		.alu_src_a(alu_src_a_select), 
 		.pc_write(pc_write), 
 		.branch(branch), 
+		.branch_ne(branch_ne), 
 		.pc_src(pc_src), 
 		.reg_write(reg_write), 
 		.i_or_d(i_or_d), 
@@ -105,7 +106,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// connection wires and muxes
 	// memory address and register file
 	
-	assign pc_en = pc_write | (branch & alu_zero);
+	assign pc_en = pc_write | (branch & alu_zero) | (branch_ne & (~alu_zero));
 	assign pc_jump[31:28] = PC[31:28];
 	assign pc_jump[27:2] = instruction[25:0];
 	assign pc_jump[1:0] = 2'b00;

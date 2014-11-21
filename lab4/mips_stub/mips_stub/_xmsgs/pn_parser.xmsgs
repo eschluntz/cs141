@@ -8,12 +8,5 @@
 <!-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/mips_stub/mips_stub/control.v\&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">E:/cs141/lab4/mips_stub/mips_stub/control.v</arg>&quot; Line <arg fmt="%d" index="2">5</arg>. <arg fmt="%s" index="3">Include file found: &apos;E:/cs141/lab4/mips_stub/mips_stub/alu_op_codes.v&apos; in file &quot;E:/cs141/lab4/mips_stub/mips_stub/control.v&quot; line 5
-</arg>
-</msg>
-
 </messages>
 

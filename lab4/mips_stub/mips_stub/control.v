@@ -28,7 +28,7 @@ module control(
 	output wire [1:0] pc_src,
 	output wire alu_src_a,
 	
-	output wire pc_write, branch, reg_write,
+	output wire pc_write, branch, branch_ne, reg_write,
 	output wire i_or_d, mem_write, ir_write,
 	output wire reg_dst, mem_to_reg
 	);
@@ -85,6 +85,7 @@ module control(
 		(STATE == 22)? 2 :
 		(STATE == 25)? 7 :
 		(STATE == 9) ? 6 :
+		(STATE == 27)? 6 :
 		(STATE == 7) ? funct_to_alu :
 							0;
 	assign alu_src_b = 
@@ -97,9 +98,11 @@ module control(
 		(STATE == 22)? 2 :
 		(STATE == 25)? 2 :
 		(STATE == 9) ? 0 :
+		(STATE == 27)? 0 :
 							0;
 	assign pc_src = 
 		(STATE == 9) ? 1 :
+		(STATE == 27)? 1 :
 		(STATE == 13)? 2 :
 							0;
 	assign alu_src_a = 
@@ -110,6 +113,7 @@ module control(
 		(STATE == 22)? 1 :
 		(STATE == 25)? 1 :
 		(STATE == 9) ? 1 :
+		(STATE == 27) ? 1 :
 		(STATE == 7) ? 1 :
 							0;
 	assign pc_write = 
@@ -118,6 +122,9 @@ module control(
 							0;
 	assign branch = 
 		(STATE == 9) ? 1 :
+							0;
+	assign branch_ne = 
+		(STATE == 27) ? 1 :
 							0;
 	assign reg_write = 
 		(STATE == 5) ? 1 :
@@ -263,7 +270,7 @@ module control(
 			// slti Writeback
 			end else if (STATE == 26) begin
 				STATE <= 0;
-			// beq Branch
+			// bne Branch
 			end else if (STATE == 27) begin
 				STATE <= 0;
 
