@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/synthesis_rig/cpu_src/synth_dual_port_memory.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">E:/cs141/lab4/synthesis_rig/cpu_src/synth_dual_port_memory.v</arg>&quot; Line <arg fmt="%d" index="2">4</arg>. <arg fmt="%s" index="3">Include file found: &apos;E:/cs141/lab4/synthesis_rig/cpu_src/mips_memory_space_defines.v&apos; in file &quot;E:/cs141/lab4/synthesis_rig/cpu_src/synth_dual_port_memory.v&quot; line 4
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/synthesis_rig/debugger_src/tft_driver.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">E:/cs141/lab4/synthesis_rig/debugger_src/tft_driver.v</arg>&quot; Line <arg fmt="%d" index="2">3</arg>. <arg fmt="%s" index="3">Include file found: &apos;E:/cs141/lab4/mips_stub/mips_stub/tft_defines.v&apos; in file &quot;E:/cs141/lab4/synthesis_rig/debugger_src/tft_driver.v&quot; line 3
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1769" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;E:/cs141/lab4/synthesis_rig/main.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">E:/cs141/lab4/synthesis_rig/main.v</arg>&quot; Line <arg fmt="%d" index="2">5</arg>. <arg fmt="%s" index="3">Include file found: &apos;E:/cs141/lab4/mips_stub/mips_stub/tft_defines.v&apos; in file &quot;E:/cs141/lab4/synthesis_rig/main.v&quot; line 5
+</arg>
+</msg>
+
+</messages>
+

@@ -2,7 +2,7 @@
 
 `default_nettype none
 
-module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
+module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC, full_register_file);
 
 	// inputs
 	input wire clk, rstb;
@@ -10,6 +10,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	output wire [31:0] mem_wr_data, mem_addr;
 	input wire [31:0] mem_rd_data;             
 	output reg [31:0] PC;
+	output wire [1023:0] full_register_file;
 	
 	// internal wires ---------------------
 	// register
@@ -65,7 +66,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		.wr_addr(reg_wr_addr), 
 		.wr_data(reg_wr_data), 
 		.rd_data_1(reg_rd_data_1), 
-		.rd_data_2(reg_rd_data_2)
+		.rd_data_2(reg_rd_data_2),
+		.all_data(full_register_file)
 	);
 	
 	control CONTROL (
