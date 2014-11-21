@@ -32,7 +32,7 @@ module control(
 	);
 	
 	// Internal state
-	reg [3:0] STATE;
+	reg [5:0] STATE;
 	
 	/* all zeros
 					i_or_d <= 0;
@@ -66,7 +66,7 @@ module control(
 		(STATE == 2) ? 3 :
 		(STATE == 3) ? 2 :
 		(STATE == 11)? 2 :
-		(STATE == 9) ? 2 :
+		(STATE == 9) ? 0 :
 							0;
 	assign pc_src = 
 		(STATE == 9) ? 1 :
