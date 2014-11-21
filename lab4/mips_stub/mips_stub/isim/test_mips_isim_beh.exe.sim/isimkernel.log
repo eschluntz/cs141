@@ -2,6 +2,7 @@ Command line:
    test_mips_isim_beh.exe
      -simmode  gui
      -simrunnum  0
+<<<<<<< HEAD
      -socket  49893
 
 Fri Nov 21 00:53:23 2014
@@ -27,3 +28,11 @@ Total Line Count : 175
 
 Fri Nov 21 00:55:18 2014
 
+=======
+     -socket  1960
+
+Thu Nov 20 19:49:43 2014
+
+
+ Elaboration Time: 0.060086 sec
+>>>>>>> origin/master
