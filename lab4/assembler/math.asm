@@ -6,8 +6,8 @@ or	$s2, $t0, $t1
 and	$s3, $t0, $t1
 xor	$s4, $t0, $t1
 
-sw	$s0, 40($zero)
-sw	$s1, 44($zero)
-sw	$s2, 48($zero)
-sw	$s3, 52($zero)
-sw	$s4, 56($zero)
+sw	$s0, 60($zero)
+sw	$s1, 64($zero)
+sw	$s2, 68($zero)
+sw	$s3, 72($zero)
+sw	$s4, 76($zero)

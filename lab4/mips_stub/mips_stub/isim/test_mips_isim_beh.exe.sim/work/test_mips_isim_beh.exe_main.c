@@ -29,11 +29,11 @@ int main(int argc, char **argv)
     work_m_00000000001869946818_3877310806_init();
     work_m_00000000004165586116_2381739659_init();
     work_m_00000000000228065848_0116314407_init();
-    work_m_00000000004093713498_2073120511_init();
+    work_m_00000000004134447467_2073120511_init();
 
 
     xsi_register_tops("work_m_00000000000228065848_0116314407");
-    xsi_register_tops("work_m_00000000004093713498_2073120511");
+    xsi_register_tops("work_m_00000000004134447467_2073120511");
 
 
     return xsi_run_simulation(argc, argv);
