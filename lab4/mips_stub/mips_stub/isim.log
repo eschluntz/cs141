@@ -11,23 +11,6 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# run all
-Stopped at time : 1045 ns : File "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 43
-# run 1.00us
-# run 1.00us
-ISim O.87xd (signature 0xc3576ebc)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-ERROR: Illegal hex digit 'L' found in data of file "in.machine" on line 38 in file "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/memory.v".
-Finished circuit initialization process.
-# run all
-Stopped at time : 1045 ns : File "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 43
-# run 1.00us
-# run 1.00us
 ISim O.87xd (signature 0xc3576ebc)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -36,7 +19,3 @@ This is a Lite version of ISim.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# run all
-Stopped at time : 1045 ns : File "D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 43
-# run 1.00us
-# run 1.00us

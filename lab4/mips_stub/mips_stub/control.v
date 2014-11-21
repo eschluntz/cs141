@@ -26,7 +26,7 @@ module control(
 	output wire [3:0] alu_control,
 	output wire [2:0] alu_src_b,
 	output wire [1:0] pc_src,
-	output wire alu_src_a,
+	output wire [1:0] alu_src_a, // 2,3 = shifting
 	
 	output wire pc_write, branch, reg_write,
 	output wire i_or_d, mem_write, ir_write,
@@ -36,6 +36,7 @@ module control(
 	// Internal state
 	reg [5:0] STATE;
 	wire [3:0] funct_to_alu;
+	wire shifting;
 	
 	/* all zeros
 					i_or_d <= 0;
@@ -69,6 +70,7 @@ module control(
 		(funct == 42) ? `OP_SLT : // slt
 							0; // unknown
 							
+	assign shifting = (funct == 0 | funct == 2 | funct == 3);
 							
 	/* 
 		Combinational logic to define each output based on state
@@ -82,6 +84,7 @@ module control(
 		(STATE == 11)? 5 :
 		(STATE == 9) ? 6 :
 		(STATE == 7) ? funct_to_alu :
+		(STATE == 14) ? funct_to_alu :
 							0;
 	assign alu_src_b = 
 		(STATE == 0) ? 1 :
@@ -89,6 +92,7 @@ module control(
 		(STATE == 3) ? 2 :
 		(STATE == 11)? 2 :
 		(STATE == 9) ? 0 :
+		(STATE == 14) ? 4 :
 							0;
 	assign pc_src = 
 		(STATE == 9) ? 1 :
@@ -98,6 +102,7 @@ module control(
 		(STATE == 11)? 1 :
 		(STATE == 9) ? 1 :
 		(STATE == 7) ? 1 :
+		(STATE == 14) ? 2 :
 							0;
 	assign pc_write = 
 		(STATE == 0) ? 1 :
@@ -152,7 +157,11 @@ module control(
 				end else if (op == `beq_op) begin
 					STATE <= 9;
 				end else if (op == `r_op) begin
-					STATE <= 7;
+					if (shifting) begin
+						STATE <= 14; // R that is a shift
+					end else begin
+						STATE <= 7;
+					end // R that is not a shift
 				end else begin
 					STATE <= 0;
 				end
@@ -190,6 +199,9 @@ module control(
 			// addi Writeback
 			end else if (STATE == 12) begin
 				STATE <= 0;
+			// R type shift execute
+			end else if (STATE == 14) begin
+				STATE <= 8;
 			end
 		end
 	end

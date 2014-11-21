@@ -24,8 +24,8 @@ Compiling module memory
 Compiling module test_mips
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 2 sub-compilation(s) to finish...
+Waiting for 4 sub-compilation(s) to finish...
 Compiled 8 Verilog Units
 Built simulation executable D:/cs141/lab4/mips_stub/mips_stub/test_mips_isim_beh.exe
-Fuse Memory Usage: 29172 KB
-Fuse CPU Usage: 561 ms
+Fuse Memory Usage: 29268 KB
+Fuse CPU Usage: 499 ms
