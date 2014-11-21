@@ -30,7 +30,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	wire [3:0] alu_control;
 	wire [2:0] alu_src_b_select;
 	wire [1:0] pc_src;
-	wire alu_src_a_select;
+	wire [1:0] alu_src_a_select;
 	wire pc_write;
 	wire branch, branch_ne;
 	wire reg_write;
@@ -126,12 +126,14 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	assign op = instruction[31:26];
 	assign funct = instruction[5:0];
 	
-	assign alu_src_a = alu_src_a_select ? A : PC;
+	assign alu_src_a = (alu_src_a_select == 0) ? PC :
+							 (alu_src_a_select == 1) ? A : 
+															B; // for shifts
 	assign alu_src_b = alu_src_b_select == 3'b000 ? B :
 									alu_src_b_select == 3'b001 ? 32'd4 :
 									alu_src_b_select == 3'b010 ? sign_imm :
 									alu_src_b_select == 3'b011 ?sign_imm << 2 :
-														instruction[10:6]; // shamt
+														instruction[10:6]; // shamt when src_b_select = 3'b1xx
 							
 
 	//todo make op and func wires
