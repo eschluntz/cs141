@@ -82,6 +82,10 @@ module control(
 		(STATE == 2) ? 5 :
 		(STATE == 3) ? 5 :
 		(STATE == 11)? 5 :
+		(STATE == 16)? 0 :
+		(STATE == 19)? 1 :
+		(STATE == 22)? 2 :
+		(STATE == 25)? 7 :
 		(STATE == 9) ? 6 :
 		(STATE == 7) ? funct_to_alu :
 		(STATE == 14) ? funct_to_alu :
@@ -91,21 +95,31 @@ module control(
 		(STATE == 2) ? 3 :
 		(STATE == 3) ? 2 :
 		(STATE == 11)? 2 :
+		(STATE == 16)? 2 :
+		(STATE == 19)? 2 :
+		(STATE == 22)? 2 :
+		(STATE == 25)? 2 :
 		(STATE == 9) ? 0 :
 		(STATE == 14) ? 4 :
 							0;
 	assign pc_src = 
 		(STATE == 9) ? 1 :
+		(STATE == 13)? 2 :
 							0;
 	assign alu_src_a = 
 		(STATE == 3) ? 1 :
 		(STATE == 11)? 1 :
+		(STATE == 16)? 1 :
+		(STATE == 19)? 1 :
+		(STATE == 22)? 1 :
+		(STATE == 25)? 1 :
 		(STATE == 9) ? 1 :
 		(STATE == 7) ? 1 :
 		(STATE == 14) ? 2 :
 							0;
 	assign pc_write = 
 		(STATE == 0) ? 1 :
+		(STATE == 13)? 1 :
 							0;
 	assign branch = 
 		(STATE == 9) ? 1 :
@@ -113,6 +127,10 @@ module control(
 	assign reg_write = 
 		(STATE == 5) ? 1 :
 		(STATE == 12)? 1 :
+		(STATE == 17)? 1 :
+		(STATE == 20)? 1 :
+		(STATE == 23)? 1 :
+		(STATE == 26)? 1 :
 		(STATE == 8) ? 1 :
 							0;
 	assign i_or_d = 
@@ -127,6 +145,10 @@ module control(
 							0;
 	assign reg_dst = 
 		(STATE == 12)? 0 :
+		(STATE == 17)? 0 :
+		(STATE == 20)? 0 :
+		(STATE == 23)? 0 :
+		(STATE == 26)? 0 :
 		(STATE == 8)? 1 :
 							0;
 	assign mem_to_reg = 
@@ -162,6 +184,18 @@ module control(
 					end else begin
 						STATE <= 7;
 					end // R that is not a shift
+				end else if (op == `j_op) begin
+					STATE <= 13;
+				end else if (op == `andi_op) begin
+					STATE <= 15;
+				end else if (op == `ori_op) begin
+					STATE <= 18;
+				end else if (op == `xori_op) begin
+					STATE <= 21;
+				end else if (op == `slti_op) begin
+					STATE <= 24;
+				end else if (op == `bne_op) begin
+					STATE <= 27;
 				end else begin
 					STATE <= 0;
 				end
@@ -199,9 +233,51 @@ module control(
 			// addi Writeback
 			end else if (STATE == 12) begin
 				STATE <= 0;
+			// jump
+			end else if (STATE == 13) begin
+				STATE <= 0;
 			// R type shift execute
 			end else if (STATE == 14) begin
 				STATE <= 8;
+			// andi Execute1
+			end else if (STATE == 15) begin
+				STATE <= 16;
+			// andi Execute2
+			end else if (STATE == 16) begin
+				STATE <= 17;
+			// andi Writeback
+			end else if (STATE == 17) begin
+				STATE <= 0;
+			// ori Execute1
+			end else if (STATE == 18) begin
+				STATE <= 19;
+			// ori Execute2
+			end else if (STATE == 19) begin
+				STATE <= 20;
+			// ori Writeback
+			end else if (STATE == 20) begin
+				STATE <= 0;
+			// xori Execute1
+			end else if (STATE == 21) begin
+				STATE <= 22;
+			// xori Execute2
+			end else if (STATE == 22) begin
+				STATE <= 23;
+			// xori Writeback
+			end else if (STATE == 23) begin
+				STATE <= 0;
+			// slti Execute1
+			end else if (STATE == 24) begin
+				STATE <= 25;
+			// slti Execute2
+			end else if (STATE == 25) begin
+				STATE <= 26;
+			// slti Writeback
+			end else if (STATE == 26) begin
+				STATE <= 0;
+			// beq Branch
+			end else if (STATE == 27) begin
+				STATE <= 0;
 			end
 		end
 	end
