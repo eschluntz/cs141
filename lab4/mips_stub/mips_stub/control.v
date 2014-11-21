@@ -92,6 +92,7 @@ module control(
 							0;
 	assign pc_src = 
 		(STATE == 9) ? 1 :
+		(STATE == 13)? 2 :
 							0;
 	assign alu_src_a = 
 		(STATE == 3) ? 1 :
@@ -101,6 +102,7 @@ module control(
 							0;
 	assign pc_write = 
 		(STATE == 0) ? 1 :
+		(STATE == 13)? 1 :
 							0;
 	assign branch = 
 		(STATE == 9) ? 1 :
@@ -153,6 +155,8 @@ module control(
 					STATE <= 9;
 				end else if (op == `r_op) begin
 					STATE <= 7;
+				end else if (op == `j_op) begin
+					STATE <= 13;
 				end else begin
 					STATE <= 0;
 				end
@@ -189,6 +193,8 @@ module control(
 				STATE <= 12;
 			// addi Writeback
 			end else if (STATE == 12) begin
+				STATE <= 0;
+			end else if (STATE == 13) begin
 				STATE <= 0;
 			end
 		end

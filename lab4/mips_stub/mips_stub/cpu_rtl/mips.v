@@ -135,7 +135,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	always@(posedge clk) begin
 		// program counter
 		if (~rstb) begin
-			PC <= 0;
+			PC <= 32'b0x00000000010000000000000000000000;
 			A <= 0;
 			B <= 0;
 			data <= 0;
@@ -145,7 +145,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		else begin
 			if (pc_en) begin
 				PC <= (pc_src == 2'b00) ? alu_result :
-									2'b01 ? alu_out : pc_jump;
+						(pc_src == 2'b01) ? alu_out : 
+						pc_jump;
 			end
 			
 			// instruction

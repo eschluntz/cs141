@@ -5,7 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 27: Port <arg fmt="%s" index="1">gpu_clk</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/mips.v" Line 138: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">32</arg>&gt; bits.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"E:/cs141/lab4/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 27: Port <arg fmt="%s" index="1">gpu_clk</arg> is not connected to this instance
 </msg>
 
 </messages>
