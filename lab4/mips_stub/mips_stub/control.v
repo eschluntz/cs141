@@ -105,6 +105,7 @@ module control(
 		(STATE == 9) ? 1 :
 		(STATE == 27)? 1 :
 		(STATE == 13)? 2 :
+		(STATE == 30)? 3 :
 		(STATE == 29)? 2 :
 							0;
 	assign alu_src_a = 
@@ -121,6 +122,7 @@ module control(
 	assign pc_write = 
 		(STATE == 0) ? 1 :
 		(STATE == 13)? 1 :
+		(STATE == 30)? 1 :
 		(STATE == 29)? 1 :
 							0;
 	assign branch = 
@@ -186,6 +188,8 @@ module control(
 					STATE <= 10;
 				end else if (op == `beq_op) begin
 					STATE <= 9;
+				end else if (op == `r_op & funct == 8) begin
+					STATE <= 30;
 				end else if (op == `r_op) begin
 					STATE <= 7;
 				end else if (op == `j_op) begin
@@ -284,6 +288,9 @@ module control(
 				STATE <= 29;
 			// jal update
 			end else if (STATE == 29) begin
+				STATE <= 0;
+			// jr
+			end else if (STATE == 30) begin
 				STATE <= 0;
 			end
 		end

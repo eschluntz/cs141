@@ -1,5 +1,4 @@
-        addi      $t1,    $zero, 0
-        beq       $t1,    $zero, loop
+        addi      $t1,    $zero, 4194316
         addi      $t1,    $t1, 10
 loop:   addi      $t1,    $t1, 4        # $s0 = $s1 + $s2
         sw        $t1,    36($zero)

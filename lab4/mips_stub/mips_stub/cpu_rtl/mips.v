@@ -149,7 +149,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 			if (pc_en) begin
 				PC <= (pc_src == 2'b00) ? alu_result :
 						(pc_src == 2'b01) ? alu_out : 
-						pc_jump;
+						(pc_src == 2'b10) ? pc_jump :
+						reg_rd_data_1;
 			end
 			
 			// instruction
